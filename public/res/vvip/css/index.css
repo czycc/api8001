@@ -916,11 +916,5 @@ section {
   font-size: 135px;
 }
 .hidden {
-  width: 4.6875rem;
-  height: 1.5625rem;
-  text-align: center;
-  background-color: grey;
-  line-height: 1.5625rem;
-  color: white;
   display: none;
 }
