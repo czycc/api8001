@@ -50,7 +50,11 @@ section{
   padding: 2px 0;
   border-bottom: 2px solid #fff;
   color: #fff;
-  .font16;
+  .font12;
+}
+#layui-m-layer0{
+  width: 400 / @base;
+  height: 80 / @base;
 }
 .layui-m-layer .layui-m-layerchild{
   border-radius: 10 / @base;
@@ -591,15 +595,7 @@ section{
   }
   
 }
-.info1 {
-  .popup{
-    width: 300 / @base;
-    height: 300 / @base;
-    background-color: white;
-    position: absolute;
-    z-index: 100;
-  }
-}
+
 .info2 .btn{
   margin-left: 170/@base;
   span{
@@ -623,7 +619,23 @@ section{
     }
   }
 }
+.popup {
+  position: absolute;
+  z-index: 1000;
+  width: 400 / @base;
+  height: 80 / @base;
+  text-align: center;
+  line-height: 80 / @base;
+  background-color:rgba(0,0,0,0.4);
+  color: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  margin:auto;
+  .font16;
 
+}
 // font
 .font12{
   font-size: 12px;
@@ -735,6 +747,12 @@ section{
 }
 
 .hidden{
+  width: 300 / @base;
+  height: 100 / @base;
+  text-align: center;
+  background-color: grey;
+  line-height: 100 / @base;
+  color: white;
   display: none;
 }
 

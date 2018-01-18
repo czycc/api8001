@@ -45,13 +45,17 @@ section {
   padding: 2px 0;
   border-bottom: 2px solid #fff;
   color: #fff;
-  font-size: 16px;
+  font-size: 12px;
 }
 [data-dpr="2"] .rules {
-  font-size: 32px;
+  font-size: 24px;
 }
 [data-dpr="3"] .rules {
-  font-size: 48px;
+  font-size: 36px;
+}
+#layui-m-layer0 {
+  width: 6.25rem;
+  height: 1.25rem;
 }
 .layui-m-layer .layui-m-layerchild {
   border-radius: 0.15625rem;
@@ -758,13 +762,6 @@ section {
   margin-left: 0.78125rem;
   width: 3.125rem;
 }
-.info1 .popup {
-  width: 4.6875rem;
-  height: 4.6875rem;
-  background-color: white;
-  position: absolute;
-  z-index: 100;
-}
 .info2 .btn {
   margin-left: 2.65625rem;
 }
@@ -787,6 +784,28 @@ section {
 }
 .info2 .infoImg img {
   width: 7.8125rem;
+}
+.popup {
+  position: absolute;
+  z-index: 1000;
+  width: 6.25rem;
+  height: 1.25rem;
+  text-align: center;
+  line-height: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 16px;
+}
+[data-dpr="2"] .popup {
+  font-size: 32px;
+}
+[data-dpr="3"] .popup {
+  font-size: 48px;
 }
 .font12 {
   font-size: 12px;
@@ -897,5 +916,11 @@ section {
   font-size: 135px;
 }
 .hidden {
+  width: 4.6875rem;
+  height: 1.5625rem;
+  text-align: center;
+  background-color: grey;
+  line-height: 1.5625rem;
+  color: white;
   display: none;
 }

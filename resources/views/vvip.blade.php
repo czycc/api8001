@@ -25,6 +25,7 @@
             <div class="info">
                 <!-- 公告内容 -->
             </div>
+            <span class="rules">条款与细则</span>
             <img class="next" src="../res/vvip/images/next.png">
         </section>
 
@@ -260,6 +261,9 @@
         <span>长按保存图片</span>
     </div>
 </section>
+<div class="popup hidden">
+    长按图片，保存到手机
+</div>
 </body>
 <script src="../res/vvip/js/jquery.js"></script>
 <script type="application/javascript">
@@ -271,7 +275,6 @@
 </script>
 <script src="../res/vvip/js/swiper.min.js"></script>
 <script src="../res/vvip/js/mobile/layer.js"></script>
-<script src="../res/vvip/js/layer.js"></script>
 <script src="../res/vvip/js/jquery.area.js"></script>
 <script src="../res/vvip/js/html2canvas.js"></script>
 <script src="../res/vvip/js/index.js"></script>

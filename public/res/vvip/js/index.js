@@ -320,9 +320,10 @@ var product2 = [
                         $('.info2 .orderCode').html(res.id);
                         var info_content = $('#info_content')[0];
                         $('.infoImg').html('');
-                        layer.msg('上传中....', {
-                            time: 2000 //2秒关闭（如果不配置，默认是3秒）
-                        });
+                        $('.popup').html('上传中。。。').fadeIn(500);
+                        setTimeout(function(){
+                            $('.popup').fadeOut(1500)
+                        },2000);
                         var w = $('#info_content').width();
                         var h = $('#info_content').height();
                         var canvas = document.createElement('canvas');
@@ -350,7 +351,10 @@ var product2 = [
             })
         })
         $('.info2 .btn span').click(function () {
-            layer.msg('长按图片，保存到手机相册')
+            $('.popup').html('长按图片，保存到手机').fadeIn(500);
+            setTimeout(function(){
+                $('.popup').fadeOut(1500)
+            },1000);
         })
     }
 
