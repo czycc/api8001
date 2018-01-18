@@ -21,7 +21,7 @@ class CreateOrdersTable extends Migration
 //            $table->string('card',20)->comment('身份证号');
 //            $table->text('path')->comment('身份证照片路径');
             $table->text('location')->comment('详细地址');
-            $table->string('code')->unique()->comment('兑奖码');
+            $table->string('code', 10)->unique()->comment('兑奖码');
             $table->string('gift', 5);
             $table->timestamps();
         });

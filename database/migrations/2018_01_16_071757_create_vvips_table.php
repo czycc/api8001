@@ -15,7 +15,7 @@ class CreateVvipsTable extends Migration
     {
         Schema::create('vvips', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code')->unique();
+            $table->string('code', 10)->unique();
             $table->boolean('used')->default(false);
             $table->date('date')->default('2018-12-31');
 //            $table->timestamps();
