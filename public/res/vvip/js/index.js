@@ -156,7 +156,7 @@ var product2 = [
 
 
             $.ajax({
-                url: 'http://api8001.test/api/sc/code',
+                url: window.location.origin + '/api/sc/code',
                 type: 'POST',
                 data: {'code': val},
                 success: function (res) {
@@ -312,7 +312,7 @@ var product2 = [
         })
         $('.info1 .btn_infoComfirm').click(function () {
             $.ajax({
-                url: 'http://api8001.test/api/sc/order',
+                url: window.location.origin + '/api/sc/order',
                 type: 'POST',
                 data: orderForm,
                 success: function (res) {
