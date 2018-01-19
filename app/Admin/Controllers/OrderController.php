@@ -72,13 +72,13 @@ class OrderController extends Controller
     protected function grid()
     {
         return Admin::grid(Order::class, function (Grid $grid) {
+            $grid->disableCreation();
             $grid->exporter(new ExcelExpoter());
             $grid->model()->orderBy('id', 'desc');
             $grid->actions(function ($actions) {
                 $actions->disableDelete();
                 $actions->disableEdit();
             });
-            $grid->disableCreateButton();
             $grid->tools(function ($tools) {
                 $tools->batch(function ($batch) {
                     $batch->disableDelete();

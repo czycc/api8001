@@ -13,4 +13,6 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->get('order', 'OrderController@index');
     $router->get('index', 'IndexController@index');
+    $router->resource('stock', 'StockController');
+    $router->resource('news', 'NewsController');
 });

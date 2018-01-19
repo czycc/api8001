@@ -24,6 +24,7 @@
             <h3>公告信息</h3>
             <div class="info">
                 <!-- 公告内容 -->
+                {!! $news->news !!}
             </div>
             <span class="rules">条款与细则</span>
             <img class="next" src="../res/vvip/images/next.png">

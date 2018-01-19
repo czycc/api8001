@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Vip;
 
+use App\Models\News;
 use App\Models\Stock;
 use App\Models\Vvip;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ class VipController extends Controller
     public function index()
     {
         $stock = Stock::first();
-        return view('vvip', compact('stock'));
+        $news = News::first();
+        return view('vvip', compact('stock', 'news'));
     }
 
     /**
