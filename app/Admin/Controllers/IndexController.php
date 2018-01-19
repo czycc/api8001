@@ -31,7 +31,6 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('象印多功能电火锅剩余', 'balance-scale', 'aqua', '', $gift->gift7));
 
                 $order = Order::get();
-                $order->where('gift', 'gift1')->count();
                 $row->column(2, new InfoBox('万福如意礼盒兑换', 'calculator', 'green', '', $order->where('gift', 'gift1')->count()));
                 $row->column(2, new InfoBox('世界花卉精选外币兑换', 'calculator', 'green', '', $order->where('gift', 'gift2')->count()));
                 $row->column(2, new InfoBox('乐柏美保冰保温箱兑换', 'calculator', 'green', '', $order->where('gift', 'gift3')->count()));
