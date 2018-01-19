@@ -72,7 +72,7 @@ class NewsController extends Controller
     protected function grid()
     {
         return Admin::grid(News::class, function (Grid $grid) {
-//            $grid->disableCreation();
+            $grid->disableCreation();
             $grid->disableExport();
             $grid->disableFilter();
             $grid->actions(function ($actions) {
