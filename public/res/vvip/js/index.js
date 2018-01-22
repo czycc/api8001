@@ -115,18 +115,6 @@ var product2 = [
         '<p>6、智能防撞感应，温柔呵护家具；</p>' +
         '<p>7、智能越障爬坡，轻松跨越压线条；</p>' +
         '<p>注：详细功能和操作请见《产品使用说明书》</p>'
-    },
-    {
-        'gift_photo': '../res/vvip/images/gift/gift7.png',
-        'gift_title': '<div class="gift_sTitle">象印</div><div class="gift_lTitle">多功能电火锅</div>',
-        'infoText': '<p class="infoText_size">产品尺寸：385L x 350W x 22H (mm)</p>' +
-        '<p class="infoText_feature">产品特点：</p>' +
-        '<p>1、多档火力，煎烤煮炖，随需切换；</p>' +
-        '<p>2、大面积加热盘，快速导热，锁定美味；</p>' +
-        '<p>3、内径304mm，超大两片锅设计；</p>' +
-        '<p>4、主体采用食品级不锈钢材质，不沾污易清洗，经久耐用；</p>' +
-        '<p>5、强化树脂把手，防烫易挪；</p>' +
-        '<p>注：详细功能和操作请见《产品使用说明书》</p>'
     }
 ];
 (function () {

@@ -119,23 +119,22 @@ section {
 }
 .page1 .text1 {
   margin-top: 0.5625rem;
-  font-size: 12px;
+  font-size: 30px;
 }
 [data-dpr="2"] .page1 .text1 {
-  font-size: 24px;
+  font-size: 60px;
 }
 [data-dpr="3"] .page1 .text1 {
-  font-size: 36px;
+  font-size: 90px;
 }
 .page1 .text2 {
-  margin-top: 0.46875rem;
-  font-size: 16px;
+  font-size: 20px;
 }
 [data-dpr="2"] .page1 .text2 {
-  font-size: 32px;
+  font-size: 40px;
 }
 [data-dpr="3"] .page1 .text2 {
-  font-size: 48px;
+  font-size: 60px;
 }
 .page2 {
   background: url(../images/bg2.jpg) no-repeat center center;
@@ -257,10 +256,10 @@ section {
   top: 0.9375rem;
 }
 .gift_select2 ul {
-  margin-top: 2.03125rem;
+  margin-top: 2.1875rem;
 }
 .gift_select2 ul li {
-  margin-top: 0.46875rem;
+  margin-top: 0.9375rem;
   position: relative;
 }
 .gift_select2 ul li span {
@@ -276,14 +275,18 @@ section {
 [data-dpr="3"] .gift_select2 ul li span {
   font-size: 36px;
 }
+.gift_select2 ul li img {
+  width: 10.9375rem;
+  margin-left: -0.9375rem;
+}
+.gift_select2 ul li:nth-child(1) span {
+  top: 1.5625rem;
+}
 .gift_select2 ul li:nth-child(2) span {
   top: 0.9375rem;
 }
 .gift_select2 ul li:nth-child(3) span {
   top: 0.78125rem;
-}
-.gift_select2 ul li:nth-child(4) span {
-  top: 0.625rem;
 }
 .gift {
   background: url("../images/bg_purchase.jpg") no-repeat center;
@@ -785,28 +788,6 @@ section {
 .info2 .infoImg img {
   width: 7.8125rem;
 }
-.popup {
-  position: absolute;
-  z-index: 1000;
-  width: 6.25rem;
-  height: 1.25rem;
-  text-align: center;
-  line-height: 1.25rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  font-size: 16px;
-}
-[data-dpr="2"] .popup {
-  font-size: 32px;
-}
-[data-dpr="3"] .popup {
-  font-size: 48px;
-}
 .font12 {
   font-size: 12px;
 }
@@ -824,6 +805,15 @@ section {
 }
 [data-dpr="3"] .font16 {
   font-size: 48px;
+}
+.font20 {
+  font-size: 20px;
+}
+[data-dpr="2"] .font20 {
+  font-size: 40px;
+}
+[data-dpr="3"] .font20 {
+  font-size: 60px;
 }
 .font24 {
   font-size: 24px;
@@ -896,6 +886,15 @@ section {
 }
 [data-dpr="3"] .font50 {
   font-size: 78px;
+}
+.font60 {
+  font-size: 30px;
+}
+[data-dpr="2"] .font60 {
+  font-size: 60px;
+}
+[data-dpr="3"] .font60 {
+  font-size: 90px;
 }
 .font80 {
   font-size: 40px;

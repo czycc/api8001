@@ -101,11 +101,11 @@ section{
   }
   .text1{
     margin-top: 36 / @base;
-    .font12;
+    .font60;
   }
   .text2{
-    margin-top: 30 / @base;
-    .font16;
+    // margin-top: 30 / @base;
+    .font20;
   }
 
 }
@@ -204,9 +204,9 @@ section{
 }
 .gift_select2{
   ul{
-    margin-top: 130/@base;
+    margin-top: 140/@base;
     li{
-      margin-top: 30/@base;
+      margin-top: 60/@base;
       position: relative;
       span{
         position: absolute;
@@ -215,15 +215,19 @@ section{
         color: #6cb865;
         .font12;
       }
+      img{
+        width: 700/@base;
+        margin-left: -60 / @base;
+      }
+    }
+    li:nth-child(1) span{
+      top:100/@base;
     }
     li:nth-child(2) span{
       top:60/@base;
     }
     li:nth-child(3) span{
       top:50/@base;
-    }
-    li:nth-child(4) span{
-      top:40/@base;
     }
   }
 }
@@ -619,23 +623,23 @@ section{
     }
   }
 }
-.popup {
-  position: absolute;
-  z-index: 1000;
-  width: 400 / @base;
-  height: 80 / @base;
-  text-align: center;
-  line-height: 80 / @base;
-  background-color:rgba(0,0,0,0.4);
-  color: white;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom:0;
-  margin:auto;
-  .font16;
+// .hint {
+//   position: absolute;
+//   z-index: 1000;
+//   width: 400 / @base;
+//   height: 80 / @base;
+//   text-align: center;
+//   line-height: 80 / @base;
+//   background-color:rgba(0,0,0,0.4);
+//   color: white;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   bottom:0;
+//   margin:auto;
+//   .font16;
 
-}
+// }
 // font
 .font12{
   font-size: 12px;
@@ -653,6 +657,15 @@ section{
   }
   [data-dpr="3"] & {
     font-size: 48px;
+  }
+}
+.font20{
+  font-size: 20px;
+  [data-dpr="2"] & {
+    font-size: 40px;
+  }
+  [data-dpr="3"] & {
+    font-size: 60px
   }
 }
 .font24{
@@ -727,6 +740,15 @@ section{
     font-size: 78px;
   }
 }
+.font60{
+  font-size: 30px;
+  [data-dpr="2"] &{
+    font-size: 60px;
+  }
+  [data-dpr="3"] &{
+    font-size: 90px;
+  }
+}
 .font80{
   font-size: 40px;
   [data-dpr="2"] &{
@@ -747,6 +769,7 @@ section{
 }
 
 .hidden{
+ 
   display: none;
 }
 

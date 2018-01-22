@@ -15,8 +15,10 @@
     <div class="swiper-wrapper">
         <section class="page1 swiper-slide">
             <img class='header' src="../res/vvip/images/header.png"/>
-            <p class='text1'>2018礼品兑换平台</p>
-            <p class='text2'>开启<br/>美好生活旅程</p>
+            <p class='text1'>2018</p>
+            <p class='text2'>优先理财客户礼品兑换平台</p>
+            <p class='text1'>开启</p>
+            <p class='text2'>美好生活旅程</p>
         </section>
 
         <section class="page2 swiper-slide">
@@ -102,7 +104,7 @@
             @endif
             <img src="../res/vvip/images/gift6.png" alt="">
         </li>
-        <li>
+        <!-- <li>
             @if($stock->gift7 > 0)
                 <span class="">库存正常</span>
             @else
@@ -110,7 +112,7 @@
                 <span style="color:red">库存缺货</span>
             @endif
             <img src="../res/vvip/images/gift7.png" alt="">
-        </li>
+        </li> -->
     </ul>
     <span class="rules">条款与细则</span>
     <img class="next" src="../res/vvip/images/next.png">
