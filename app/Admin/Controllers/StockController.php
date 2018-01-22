@@ -90,7 +90,7 @@ class StockController extends Controller
             $grid->column('gift4', '碧然德电热滤水壶');
             $grid->column('gift5', '佳能手机照片打印机');
             $grid->column('gift6', '科沃斯扫地机器人');
-            $grid->column('gift7', '象印多功能电火锅');
+//            $grid->column('gift7', '象印多功能电火锅');
 
         });
     }
@@ -109,7 +109,7 @@ class StockController extends Controller
             $form->number('gift4','碧然德电热滤水壶');
             $form->number('gift5','佳能手机照片打印机');
             $form->number('gift6','科沃斯扫地机器人');
-            $form->number('gift7','象印多功能电火锅');
+//            $form->number('gift7','象印多功能电火锅');
 
         });
     }

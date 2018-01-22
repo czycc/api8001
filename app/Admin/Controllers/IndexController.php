@@ -28,7 +28,7 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('碧然德电热滤水壶剩余', 'balance-scale', 'aqua', '', $gift->gift4));
                 $row->column(2, new InfoBox('佳能手机照片打印机剩余', 'balance-scale', 'aqua', '', $gift->gift5));
                 $row->column(2, new InfoBox('科沃斯智能扫地机器人超薄二代剩余', 'balance-scale', 'aqua', '', $gift->gift6));
-                $row->column(2, new InfoBox('象印多功能电火锅剩余', 'balance-scale', 'aqua', '', $gift->gift7));
+//                $row->column(2, new InfoBox('象印多功能电火锅剩余', 'balance-scale', 'aqua', '', $gift->gift7));
 
                 $order = Order::get();
                 $row->column(2, new InfoBox('万福如意礼盒兑换', 'calculator', 'green', '', $order->where('gift', 'gift1')->count()));
@@ -37,7 +37,7 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('碧然德电热滤水壶兑换', 'calculator', 'green', '', $order->where('gift', 'gift4')->count()));
                 $row->column(2, new InfoBox('佳能手机照片打印机兑换', 'calculator', 'green', '', $order->where('gift', 'gift5')->count()));
                 $row->column(2, new InfoBox('科沃斯智能扫地机器人超薄二代兑换', 'calculator', 'green', '', $order->where('gift', 'gift6')->count()));
-                $row->column(2, new InfoBox('象印多功能电火锅兑换', 'calculator', 'green', '', $order->where('gift', 'gift7')->count()));
+//                $row->column(2, new InfoBox('象印多功能电火锅兑换', 'calculator', 'green', '', $order->where('gift', 'gift7')->count()));
 
             });
         });
