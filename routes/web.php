@@ -16,3 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('vvip', 'Vip\VipController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/doctor/{id}', 'DoctorController@doctor');
