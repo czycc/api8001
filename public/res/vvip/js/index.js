@@ -272,8 +272,6 @@ var product2 = [
                 alert('请填写正确的手机号码');
             } else if ($('.proText').html() == '') {
                 alert('请选择市/省份');
-            } else if ($('.districtText').html() == '') {
-                alert('请选择区/县');
             } else if ($('.code').val() == '') {
                 alert('请填写邮编');
             } else if (!regCode.test($('.code').val())) {
