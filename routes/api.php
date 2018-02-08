@@ -22,3 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  */
 Route::post('sc/code', 'Vip\VipController@code');
 Route::post('sc/order', 'Vip\VipController@order');
+
+//门诊问询移除接口
+Route::post('doctors/delete', 'DoctorController@delete');

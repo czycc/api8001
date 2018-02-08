@@ -1,0 +1,32 @@
+/*通用样式*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color:transparent;
+}
+a, a:link {
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color:transparent;
+}
+img{
+	display: block;
+}
+ul{
+	list-style: none;
+}
+input{
+	outline: none;
+}
+/*自定义通用样式*/
+.hidden{
+	display: none;
+}
+.audioMusic{
+	position: absolute;
+	width: 60px;
+	right: 41px;
+	top:48px;
+	z-index: 100;
+}

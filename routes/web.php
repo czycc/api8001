@@ -21,4 +21,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/doctor/{id}', 'DoctorController@doctor');
+//门诊等候屏幕
+Route::get('doctors/waiting', 'DoctorController@waiting');
+Route::get('doctor/{id}', 'DoctorController@doctorShow');
+Route::group(['middleware' => 'auth'], function (){
+    //初始化
+    Route::get('doctors/init', 'DoctorController@init');
+//后台操作排队
+    Route::get('doctors/index', 'DoctorController@index');
+//门诊登记
+    Route::get('doctors/create', 'DoctorController@create');
+    Route::post('doctors/create', 'DoctorController@store');
+
+    Route::get('doctors/setting', 'DoctorController@setting');
+    Route::post('doctors/setting', 'DoctorController@set');
+});
