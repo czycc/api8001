@@ -306,9 +306,9 @@ var product2 = [
                         $('.info2 .orderCode').html(res.id);
                         var info_content = $('#info_content')[0];
                         $('.infoImg').html('');
-                        $('.popup').html('上传中。。。').fadeIn(500);
+                        $('.hint').html('上传中。。。').fadeIn(500);
                         setTimeout(function(){
-                            $('.popup').fadeOut(1500)
+                            $('.hint').fadeOut(1500)
                         },2000);
                         var w = $('#info_content').width();
                         var h = $('#info_content').height();
@@ -337,9 +337,9 @@ var product2 = [
             })
         })
         $('.info2 .btn span').click(function () {
-            $('.popup').html('长按图片，保存到手机').fadeIn(500);
+            $('.hint').html('长按图片，保存到手机').fadeIn(500);
             setTimeout(function(){
-                $('.popup').fadeOut(1500)
+                $('.hint').fadeOut(1500)
             },1000);
         })
     }

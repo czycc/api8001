@@ -788,6 +788,28 @@ section {
 .info2 .infoImg img {
   width: 7.8125rem;
 }
+.hint {
+  position: absolute;
+  z-index: 1000;
+  width: 6.25rem;
+  height: 1.25rem;
+  text-align: center;
+  line-height: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 16px;
+}
+[data-dpr="2"] .hint {
+  font-size: 32px;
+}
+[data-dpr="3"] .hint {
+  font-size: 48px;
+}
 .font12 {
   font-size: 12px;
 }

@@ -264,7 +264,7 @@
         <span>长按保存图片</span>
     </div>
 </section>
-<div class="popup hidden">
+<div class="hint hidden">
     长按图片，保存到手机
 </div>
 </body>
