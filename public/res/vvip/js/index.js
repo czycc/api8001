@@ -306,7 +306,7 @@ var product2 = [
                         $('.info2 .orderCode').html(res.id);
                         var info_content = $('#info_content')[0];
                         $('.infoImg').html('');
-                        $('.hint').html('上传中。。。').fadeIn(500);
+                        $('.hint').html('订单提交成功！').fadeIn(500);
                         setTimeout(function(){
                             $('.hint').fadeOut(1500)
                         },2000);
