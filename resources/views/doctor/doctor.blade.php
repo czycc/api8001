@@ -41,4 +41,9 @@
 
 </section>
 </body>
+<script type="application/javascript">
+    setTimeout(function () {
+        window.location.reload();
+    }, 5000);
+</script>
 </html>
