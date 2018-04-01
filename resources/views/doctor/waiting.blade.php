@@ -40,9 +40,15 @@
                                 <li class="major">{{ json_decode($list[0])->category }}</li>
                                 <li class="doctor">{{ json_decode($list[0])->doctor }}</li>
                                 <li class="doctor_see">{{ json_decode($list[0])->name}} 就诊中</li>
-                                <li class="doctor_plan">请{{ json_decode($list[0])->id }}0{{$index[$id+1]+1}}
-                                    号{{ json_decode($list[1])->name}} 准备
-                                </li>
+                                @if(!isset($list[1]))
+                                    <li class="doctor_plan">
+                                        空闲
+                                    </li>
+                                @else
+                                    <li class="doctor_plan">请{{ json_decode($list[0])->id }}0{{$index[$id+1]+1}}
+                                        号{{ json_decode($list[1])->name}} 准备
+                                    </li>
+                                @endif
                             </ul>
                         @endif
                     @endif

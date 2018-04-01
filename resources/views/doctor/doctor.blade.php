@@ -32,8 +32,19 @@
                     <p><span class="design">当前号</span> <span class="mask_one">空闲</span></p>
                     <p><span class="design">下一位</span> <span class="mask_two">空闲</span></p>
                 @else
-                    <p><span class="design">当前号</span> <span class="mask_one">{{ $doctor->id }}0{{ $index }} {{ json_decode($list[0])->name }}</span></p>
-                    <p><span class="design">下一位</span> <span class="mask_two">{{ $doctor->id }}0{{ $index+1 }} {{ json_decode($list[1])->name }}</span></p>
+                    <p>
+                        <span class="design">当前号</span>
+                        <span class="mask_one">{{ $doctor->id }}0{{ $index }} {{ json_decode($list[0])->name }}</span>
+                    </p>
+                    <p>
+                        <span class="design">下一位</span>
+                        @if(!isset($list[1]))
+                            <span class="mask_two">空闲</span>
+                        @else
+                            <span class="mask_two">{{ $doctor->id }}
+                                0{{ $index+1 }} {{ json_decode($list[1])->name }}</span>
+                        @endif
+                    </p>
                 @endif
             </div>
         </div>

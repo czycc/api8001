@@ -64,7 +64,8 @@ class DoctorController extends Controller
         $name = $request->name;//姓名
         $id = $request->id;//诊室id
         $category = $request->category;//门诊类别
-        $doctor = Redis::get('Doctor_' . $id);
+        $info = Doctors::find($id);
+        $doctor =$info->name;
         $str = json_encode([
             'name' => $name,
             'id' => $id,
@@ -72,7 +73,6 @@ class DoctorController extends Controller
             'doctor' => $doctor,
         ]);
         Redis::rpush('Doctor_' . $id . '_' . $date, $str);
-
         return back()->with('success', '提交成功');
     }
 
