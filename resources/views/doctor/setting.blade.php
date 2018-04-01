@@ -2,20 +2,6 @@
 
 @section('content')
     <div class="container">
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
         <div class="row">
             <div class="col-md-4">
                 <div class="panel panel-primary">
@@ -28,9 +14,9 @@
                             <div class="form-group">
                                 <label for="id">诊所选择:</label>
                                 <select name="id" id="id" autofocus class="form-control">
-                                    <option value="1">诊室1</option>
-                                    <option value="2">诊室2</option>
-                                    <option value="3">诊室3</option>
+                                    @for($i=1;$i<=7;$i++)
+                                        <option value="{{ $i }}">诊室{{ $i }}</option>
+                                    @endfor
                                 </select>
                             </div>
                             <div class="form-group">

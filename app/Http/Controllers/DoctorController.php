@@ -16,12 +16,12 @@ class DoctorController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      *
      * 返回总排队，显示在外部大屏
-     * 排队思路：根据时间在redis中存储队列当前index和队列list信息，一共三个诊室
+     * 排队思路：根据时间在redis中存储队列当前index和队列list信息，一共七个诊室
      */
     public function waiting()
     {
         $date = date('Ymd');
-        for ($id = 1; $id <= 3; $id++) {
+        for ($id = 1; $id <= 7; $id++) {
             Redis::setnx('Doctor_' . $id . '_' . $date . '_index', 0);
             $index[$id] = Redis::get('Doctor_' . $id . '_' . $date . '_index');
             $lists[$id] = Redis::lrange('Doctor_' . $id . '_' . $date, $index[$id], -1);
@@ -37,7 +37,7 @@ class DoctorController extends Controller
     {
         $date = date('Ymd');
         //获取当前排队号和排队列表
-        for ($id = 1; $id <= 3; $id++) {
+        for ($id = 1; $id <= 7; $id++) {
             Redis::setnx('Doctor_' . $id . '_' . $date . '_index', 0);
             $index[$id] = Redis::get('Doctor_' . $id . '_' . $date . '_index');
             $lists[$id] = Redis::lrange('Doctor_' . $id . '_' . $date, $index[$id], -1);
@@ -73,7 +73,7 @@ class DoctorController extends Controller
         ]);
         Redis::rpush('Doctor_' . $id . '_' . $date, $str);
 
-        return 'true';
+        return back()->with('success', '提交成功');
     }
 
     public function setting()
@@ -84,22 +84,25 @@ class DoctorController extends Controller
 
     public function set(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'name' => 'required',
             'id' => 'required',
             'category' => 'required',
             'info' => 'required'
         ]);
-        if (!empty($request->img)){
+        if (!empty($request->img)) {
             $path = Storage::disk('public_path')
-                ->putFileAs('doctors', new File($request->img), 'doctor_'.$request->id . '.jpg');
+                ->putFileAs('doctors', new File($request->img), 'doctor_' . $request->id . '.jpg');
         }
 
-        $doctor = Doctors::find($request->id);
-        $doctor->name = $request->name;
-        $doctor->category = $request->category;
-        $doctor->info = $request->info;
-        $doctor->save();
+        Doctors::updateOrCreate(
+            ['id' => $request->id],
+            [
+                'name' => $request->name,
+                'category' => $request->category,
+                'info' => $request->info,
+            ]
+        );
 
         return back()->with('success', '提交成功');
     }
@@ -119,9 +122,9 @@ class DoctorController extends Controller
             $res = Redis::incr('Doctor_' . $request->id . '_' . $date . '_index');
             $record = new Record();
             $record->doctor_id = $request->id;
-            $record->name=$request->name;
-            $record->category=$request->category;
-            $record->doctor=$request->doctor;
+            $record->name = $request->name;
+            $record->category = $request->category;
+            $record->doctor = $request->doctor;
             $record->save();
 
         } else {
@@ -145,13 +148,13 @@ class DoctorController extends Controller
         $list = Redis::lrange('Doctor_' . $id . '_' . $date, $index, -1);
 
         $doctor = Doctors::find($id);
-        return view('doctor.doctor', compact('doctor','index', 'list'));
+        return view('doctor.doctor', compact('doctor', 'index', 'list'));
     }
 
     public function init()
     {
         $date = date('Ymd');
-        for ($id = 1; $id <= 3; $id++) {
+        for ($id = 1; $id <= 7; $id++) {
             Redis::setnx('Doctor_' . $id . '_' . $date . '_index', 0);
             $index[$id] = Redis::get('Doctor_' . $id . '_' . $date . '_index');
             $str = json_encode([

@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('res/doctor/css/reset2.css') }}">
     <link rel="stylesheet" href="{{ asset('res/doctor/css/index2.css') }}">
-    <title>Document</title>
+    <title>医生简介页面</title>
 </head>
 <body>
 <section>
     <div class="title">
         <div class="offcice">
-            {{ $doctor->category }}
+            {{ !empty($doctor) ? $doctor->category : '中医外科' }}
         </div>
     </div>
     <div class="content">
@@ -20,15 +20,15 @@
             <img src="{{ asset('res/doctor/img/celebrated.png') }}" alt="">
         </div>
         <div class="center">
-            <img src="{{ asset('upload/doctors') }}/doctor_{{ $doctor->id }}.jpg" alt="">
+            <img src="{{ asset('upload/doctors') }}/doctor_{{ !empty($doctor) ? $doctor->id : '0'}}.jpg" alt="">
         </div>
         <div class="right">
             <div class="t">
-                <div class="name">{{ $doctor->name }}</div>
-                <p>简介：{{ $doctor->info }}</p>
+                <div class="name">{{ !empty($doctor) ? $doctor->name : '某某某'}}</div>
+                <p>简介：{{ !empty($doctor) ? $doctor->info : '这里有一段简介！'}}</p>
             </div>
             <div class="h">
-                @if(empty($list))
+                @if(empty($list) || empty($doctor))
                     <p><span class="design">当前号</span> <span class="mask_one">空闲</span></p>
                     <p><span class="design">下一位</span> <span class="mask_two">空闲</span></p>
                 @else
@@ -38,7 +38,6 @@
             </div>
         </div>
     </div>
-
 </section>
 </body>
 <script type="application/javascript">

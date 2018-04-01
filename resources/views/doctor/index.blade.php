@@ -18,7 +18,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @for($id=0;$id<3;$id++)
+                        @for($id=0;$id<7;$id++)
                             @php($k=0)
                             @foreach($lists as $list)
                                 @if(!empty($list)&&$loop->index ==$id)

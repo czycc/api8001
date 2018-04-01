@@ -2,6 +2,20 @@
 
 @section('content')
     <div class="container">
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
                 <form method="post" action="{{ url('doctors/create') }}">
@@ -9,9 +23,9 @@
                     <div class="form-group">
                         <label for="id">诊室选择：</label>
                         <select name="id" id="id" autofocus class="form-control">
-                            <option value="1">诊室1号</option>
-                            <option value="2">诊室2号</option>
-                            <option value="3">诊室3号</option>
+                            @for($k=1;$k<=7;$k++)
+                                <option value="{{ $k }}">诊室{{ $k }}</option>
+                            @endfor
                         </select>
                     </div>
 

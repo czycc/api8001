@@ -11,8 +11,9 @@
 <body>
 <section>
     <div id="headline">
+        {{----}}
         @php($status=1)
-        @php($id=random_int(0,2))
+        @php($id=random_int(0,6))
         @foreach($lists as $list)
             @if(!empty($list)&&$status&&$loop->index ==$id)
                 @php($status=0)
@@ -30,7 +31,7 @@
             <li class="doctor_plan">准备中</li>
         </ul>
         <div class="content">
-            @for($id=0;$id<3;$id++)
+            @for($id=0;$id<7;$id++)
                 @foreach($lists as $list)
                     @if(!empty($list))
                         @if($loop->index == $id)
