@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('doctors/index') }}">主页展示</a></li>
+                        {{--<li><a href="{{ url('doctors/index') }}">主页展示</a></li>--}}
                         <li><a href="{{ url('doctors/create') }}">问询登记</a></li>
                         <li><a href="{{ url('doctors/setting') }}">系统设置</a></li>
                     </ul>

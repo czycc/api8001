@@ -15,7 +15,7 @@
             {{ !empty($doctor) ? $doctor->category : '中医外科' }}
         </div>
     </div>
-    <div class="content">
+    <div class="content" id="app">
         <div class="left">
             <img src="{{ asset('res/doctor/img/celebrated.png') }}" alt="">
         </div>
@@ -28,21 +28,20 @@
                 <p>简介：{{ !empty($doctor) ? $doctor->info : '这里有一段简介！'}}</p>
             </div>
             <div class="h">
-                @if(empty($list) || empty($doctor))
-                    <p><span class="design">当前号</span> <span class="mask_one">空闲</span></p>
-                    <p><span class="design">下一位</span> <span class="mask_two">空闲</span></p>
+                @if(empty($patient) || empty($doctor))
+                    <p><span class="design">当前号</span> <span class="mask_one" id="mask_one">空闲</span></p>
+                    <p><span class="design">下一位</span> <span class="mask_two" id="mask_two">空闲</span></p>
                 @else
                     <p>
                         <span class="design">当前号</span>
-                        <span class="mask_one">{{ $doctor->id }}0{{ $index }} {{ json_decode($list[0])->name }}</span>
+                        <span class="mask_one" id="mask_one">0{{ $patient[0][0]->clinic }}0{{ $index }} {{ $patient[0][0]->name }}</span>
                     </p>
                     <p>
                         <span class="design">下一位</span>
-                        @if(!isset($list[1]))
-                            <span class="mask_two">空闲</span>
+                        @if(!isset($patient[1][0]))
+                            <span class="mask_two" id="mask_two">空闲</span>
                         @else
-                            <span class="mask_two">{{ $doctor->id }}
-                                0{{ $index+1 }} {{ json_decode($list[1])->name }}</span>
+                            <span class="mask_two" id="mask_two">0{{ $patient[1][0]->clinic }}0{{ $index+1 }} {{ $patient[1][0]->name }}</span>
                         @endif
                     </p>
                 @endif
@@ -51,9 +50,24 @@
     </div>
 </section>
 </body>
+<script src="//127.0.0.1:6001/socket.io/socket.io.js"></script>
+<script src="{{ asset('js/echo.js') }}" type="text/javascript" charset="utf-8"></script>
+
 <script type="application/javascript">
-    setTimeout(function () {
-        window.location.reload();
-    }, 5000);
+    Echo.channel('patient').listen('Patient', (e) => {
+        console.log(e);
+        if (e.clinic == '{{ $doctor->id }}') {
+            if (e.index1 > 0) {
+                document.getElementById('mask_one').innerHTML =  e.index1 + ' ' + e.name1;
+            }else {
+                document.getElementById('mask_one').innerHTML = '空闲';
+            }
+            if (e.index2 > 0) {
+                document.getElementById('mask_two').innerHTML =  e.index2 + ' ' + e.name2;
+            }else {
+                document.getElementById('mask_two').innerHTML = '空闲';
+            }
+        }
+    });
 </script>
 </html>

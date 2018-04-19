@@ -3,48 +3,78 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctors;
+use App\Models\Patient;
 use App\Models\Record;
+use Carbon\Carbon;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\Events\Patient as PatientEvent;
 
 class DoctorController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      *
-     * 返回总排队，显示在外部大屏
-     * 排队思路：根据时间在redis中存储队列当前index和队列list信息，一共七个诊室
+     * 在外部大屏显示通知排队信息，显示每个队列第一位
+     * 排队思路：以时间戳为权进行队列排序，
      */
     public function waiting()
     {
-        $date = date('Ymd');
-        for ($id = 1; $id <= 7; $id++) {
-            Redis::setnx('Doctor_' . $id . '_' . $date . '_index', 0);
-            $index[$id] = Redis::get('Doctor_' . $id . '_' . $date . '_index');
-            $lists[$id] = Redis::lrange('Doctor_' . $id . '_' . $date, $index[$id], -1);
+        $today = Carbon::today()->timestamp;
+        $tomorrow = Carbon::tomorrow()->timestamp;
+        $date = Redis::get('doctor_queue_date');
+        if ($today > $date) {
+            //每日第一次打开清空队列数据
+            for ($i = 1; $i <= 7; $i++) {
+                Redis::zremrangebyscore('doctor_queue_list' . $i, 0, $today);
+                Redis::set('doctor_queue_id' . $i, 0);//队列编号
+            }
+            Redis::set('doctor_queue_date', $today);
         }
-        return view('doctor.waiting', compact('lists', 'index'));
+
+        //获取诊室队列数据
+        for ($i = 1; $i <= 7; $i++) {
+            $index[$i] = Redis::get('doctor_queue_id' . $i);//队列编号
+            $count[$i] = Redis::zcount("doctor_queue_list{$i}", $today, $tomorrow);//用以显示是否有下一位
+            //当前队列人员
+            $id = Redis::zrange("doctor_queue_list{$i}", 0, 0);
+            $patient[$i] = Patient::find($id);
+        }
+        $doctors = Doctors::all();
+
+        return view('doctor.waiting', compact('index', 'count', 'patient', 'doctors'));
     }
 
     /**
+     * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * 查看排队列
+     *
+     * 查看诊室队列
      */
-    public function index()
+    public function index($id)
     {
-        $date = date('Ymd');
-        //获取当前排队号和排队列表
-        for ($id = 1; $id <= 7; $id++) {
-            Redis::setnx('Doctor_' . $id . '_' . $date . '_index', 0);
-            $index[$id] = Redis::get('Doctor_' . $id . '_' . $date . '_index');
-            $lists[$id] = Redis::lrange('Doctor_' . $id . '_' . $date, $index[$id], -1);
+        $today = Carbon::today()->timestamp;
+        $date = Redis::get('doctor_queue_date');
+        if ($today > $date) {
+            //每日第一次打开清空队列数据
+            for ($i = 1; $i <= 7; $i++) {
+                Redis::zremrangebyscore('doctor_queue_list' . $i, 0, $today);
+                Redis::set('doctor_queue_id' . $i, 0);//队列编号
+            }
+            Redis::set('doctor_queue_date', $today);
         }
 
-//        dd($lists);
-        return view('doctor.index', compact('lists', 'index'));
+        //获取当前排队号和排队列表
+        $index = Redis::get('doctor_queue_id' . $id);
+        $k = Redis::zrange("doctor_queue_list{$id}", 0, -1);
+        $patients = array();
+        foreach ($k as $key) {
+            $patients[] = Patient::find($key);
+        }
+        return view('doctor.index', compact('patients', 'index'));
     }
 
     /**
@@ -54,25 +84,30 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        return view('doctor.create');
+        $doctors = Doctors::all();
+        return view('doctor.create', compact('doctors'));
     }
 
     public function store(Request $request)
     {
-        $date = date('Ymd');
 
         $name = $request->name;//姓名
         $id = $request->id;//诊室id
         $category = $request->category;//门诊类别
         $info = Doctors::find($id);
-        $doctor =$info->name;
-        $str = json_encode([
-            'name' => $name,
-            'id' => $id,
-            'category' => $category,
-            'doctor' => $doctor,
-        ]);
-        Redis::rpush('Doctor_' . $id . '_' . $date, $str);
+        $doctor = $info->name;
+
+        //录入数据库
+        $patient = new Patient();
+        $patient->category = $category;
+        $patient->name = $name;
+        $patient->clinic = $id;
+        $patient->doctor = $doctor;
+        $patient->save();
+
+        //录入队列
+        Redis::zadd("doctor_queue_list{$id}", time(), $patient->id);
+
         return back()->with('success', '提交成功');
     }
 
@@ -111,89 +146,74 @@ class DoctorController extends Controller
      * @param Request $request
      * @return mixed
      *
-     *
+     * 队列移除
      */
     public function delete(Request $request)
     {
-        $date = date('Ymd');
-        //根据status判断是已经完成就诊还是移除
-        if ($request->status) {
-            //已经完成，提升index值，录入日志
-            $res = Redis::incr('Doctor_' . $request->id . '_' . $date . '_index');
-            $record = new Record();
-            $record->doctor_id = $request->id;
-            $record->name = $request->name;
-            $record->category = $request->category;
-            $record->doctor = $request->doctor;
-            $record->save();
+        $bool = Redis::zrem('doctor_queue_list' . $request->clinic, $request->id);
+        $today = Carbon::today()->timestamp;
+        $tomorrow = Carbon::tomorrow()->timestamp;
+        //判断是否有下一位
+        $count = Redis::zcount("doctor_queue_list{$request->clinic}", $today, $tomorrow);
+        if ($count > 0) {
+            //广播挂号
+            $id1 = Redis::zrange('doctor_queue_list' . $request->clinic, 0, 0);
+            $patient1 = Patient::find($id1);
+            $name1 = $patient1[0]->name;
+            $k = Redis::incr('doctor_queue_id' . $request->clinic);
+            $k1 = "0" . $request->clinic . "0" . $k;//编号
+            //判断是否有下下位
+            if ($count > 1) {
+                $id2 = Redis::zrange('doctor_queue_list' . $request->clinic, 1, 1);
+                $patient2 = Patient::find($id2);
+                $name2 = $patient2[0]->name;
+                $k += 1;
+                $k2 = "0" . $request->clinic . "0{$k}";//编号
+            } else {
+                $k2 = -1;
+                $name2 = '';
+            }
 
         } else {
-            //从队列移除，不改变index
-            $str = json_encode([
-                'name' => $request->name,
-                'id' => (int)($request->id),
-                'category' => $request->category,
-                'doctor' => $request->doctor,
-            ]);
-            $res = Redis::lrem('Doctor_' . $request->id . '_' . $date, -1, $str);
+            Redis::incr('doctor_queue_id' . $request->clinic);
+            $k1 = -1;
+            $name1 = '';
+            $k2 = -1;
+            $name2 = '';
         }
-        return $res;
+        event(new PatientEvent($k1, $name1, $k2, $name2, $request->clinic));
+        return $bool;
     }
 
-    public function doctorShow($id)
+    public function doctorShow($i)
     {
-        $date = date('Ymd');
-        Redis::setnx('Doctor_' . $id . '_' . $date . '_index', 0);
-        $index = Redis::get('Doctor_' . $id . '_' . $date . '_index');
-        $list = Redis::lrange('Doctor_' . $id . '_' . $date, $index, -1);
 
-        $doctor = Doctors::find($id);
-        return view('doctor.doctor', compact('doctor', 'index', 'list'));
-    }
-
-    public function init()
-    {
-        $date = date('Ymd');
-        for ($id = 1; $id <= 7; $id++) {
-            Redis::setnx('Doctor_' . $id . '_' . $date . '_index', 0);
-            $index[$id] = Redis::get('Doctor_' . $id . '_' . $date . '_index');
-            $str = json_encode([
-                'name' => '牛一',
-                'id' => $id,
-                'category' => '内科',
-                'doctor' => 'aa'
-            ]);
-            Redis::rpush('Doctor_' . $id . '_' . $date, $str);
-            $str = json_encode([
-                'name' => '张三',
-                'id' => $id,
-                'category' => '内科',
-                'doctor' => 'aa'
-            ]);
-            Redis::rpush('Doctor_' . $id . '_' . $date, $str);
-            $str = json_encode([
-                'name' => '李四',
-                'id' => $id,
-                'category' => '内科',
-                'doctor' => 'aa'
-            ]);
-            Redis::rpush('Doctor_' . $id . '_' . $date, $str);
-            $str = json_encode([
-                'name' => '王五',
-                'id' => $id,
-                'category' => '内科',
-                'doctor' => 'aa'
-            ]);
-            Redis::rpush('Doctor_' . $id . '_' . $date, $str);
-            $str = json_encode([
-                'name' => '陈留',
-                'id' => $id,
-                'category' => '内科',
-                'doctor' => 'aa'
-            ]);
-            Redis::rpush('Doctor_' . $id . '_' . $date, $str);
+        $today = Carbon::today()->timestamp;
+        $tomorrow = Carbon::tomorrow()->timestamp;
+        $date = Redis::get('doctor_queue_date');
+        if ($today > $date) {
+            //每日第一次打开清空队列数据
+            for ($i = 1; $i <= 7; $i++) {
+                Redis::zremrangebyscore('doctor_queue_list' . $i, 0, $today);
+                Redis::set('doctor_queue_id' . $i, 0);//队列编号
+            }
+            Redis::set('doctor_queue_date', $today);
         }
-        return 'true';
-    }
 
+        $index = Redis::get('doctor_queue_id' . $i);//队列编号
+        $count = Redis::zcount("doctor_queue_list{$i}", $today, $tomorrow);//用以显示是否有下一位
+        //当前队列人员
+        $patient = Array();
+        if ($count>0) {
+            $id = Redis::zrange("doctor_queue_list{$i}", 0, 0);
+            $patient[] = Patient::find($id);
+        }
+        if ($count > 1) {
+            //获取下一位
+            $id = Redis::zrange("doctor_queue_list{$i}", 1, 1);
+            $patient[] = Patient::find($id);
+        }
+        $doctor = Doctors::find($i);
+        return view('doctor.doctor', compact('doctor', 'index', 'patient'));
+    }
 }

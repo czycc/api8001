@@ -23,9 +23,9 @@
                     <div class="form-group">
                         <label for="id">诊室选择：</label>
                         <select name="id" id="id" autofocus class="form-control">
-                            @for($k=1;$k<=7;$k++)
-                                <option value="{{ $k }}">诊室{{ $k }}</option>
-                            @endfor
+                            @foreach($doctors as $doctor)
+                                <option value="{{ $doctor->id }}">诊室{{ $doctor->id }}</option>
+                            @endforeach
                         </select>
                     </div>
 
