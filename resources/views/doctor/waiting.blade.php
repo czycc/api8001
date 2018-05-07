@@ -57,6 +57,7 @@
         })
     }
     Echo.channel('patient').listen('Patient', (e) => {
+        console.log(e);
         var text = '';
         if (e.index1 > 0) {
             document.getElementById('index' + e.clinic).innerHTML =  e.index1 + ' ' + e.name1;
