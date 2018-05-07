@@ -43,7 +43,7 @@
     </div>
 </section>
 </body>
-<script src="{{ env('APP_URL') }}:3000/socket.io/socket.io.js"></script>
+<script src="http://api.touchworld-sh.com:6001/socket.io/socket.io.js"></script>
 <script src="{{ asset('js/echo.js') }}" type="text/javascript" charset="utf-8"></script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 
