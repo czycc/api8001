@@ -109,10 +109,21 @@ class DoctorController extends Controller
         $today = Carbon::today()->timestamp;
         $tomorrow = Carbon::tomorrow()->timestamp;
         $count = Redis::zcount("doctor_queue_list{$id}", $today, $tomorrow);
+        $k = Redis::get('doctor_queue_id' . $id);
         if ($count==0) {
-            $k = Redis::get('doctor_queue_id' . $id);
-            $k = "0" . $id . "0" . $k;//编号
-            event(new PatientEvent($k, $name, '-1', '', $id));
+            //队列为空
+            $k1 = "0" . $id . "0" . $k;//编号
+            event(new PatientEvent($k1, $name, '-1', '', $id));
+        }elseif ($count==1){
+            //队列已经有一个人
+            $k1 = "0" . $id . "0" . $k;//编号1
+            $id1 = Redis::zrange("doctor_queue_list{$id}", 0, 0);
+            $patient1 = Patient::find($id1);
+            $name1 = $patient1[0]->name;
+
+            $k +=1;
+            $k2 = "0" . $id . "0" . $k;//编号2
+            event(new PatientEvent($k1, $name1, $k2, $name, $id));
         }
         Redis::zadd("doctor_queue_list{$id}", time(), $patient->id);
 

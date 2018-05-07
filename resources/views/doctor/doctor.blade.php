@@ -57,12 +57,12 @@
     Echo.channel('patient').listen('Patient', (e) => {
         console.log(e);
         if (e.clinic == '{{ $doctor->id }}') {
-            if (e.index1 > 0) {
+            if (e.index1 >= 0) {
                 document.getElementById('mask_one').innerHTML =  e.index1 + ' ' + e.name1;
             }else {
                 document.getElementById('mask_one').innerHTML = '空闲';
             }
-            if (e.index2 > 0) {
+            if (e.index2 >= 0) {
                 document.getElementById('mask_two').innerHTML =  e.index2 + ' ' + e.name2;
             }else {
                 document.getElementById('mask_two').innerHTML = '空闲';
