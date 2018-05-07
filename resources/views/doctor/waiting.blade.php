@@ -14,7 +14,7 @@
     </audio>
     <div id="headline">
         {{----}}
-        <p style="font-size: 60px" id="warning">请 <span>xxxx</span>号 到<span>x</span>号诊室 就诊</p>
+        <p style="font-size: 60px" id="warning"></p>
     </div>
     <div class="main">
         <ul id="title">
@@ -61,7 +61,7 @@
         if (e.index1 > 0) {
             document.getElementById('index' + e.clinic).innerHTML =  e.index1 + ' ' + e.name1;
             text = '请'+ e.index1 +'号'+e.name1+'到'+e.clinic+'号诊室就诊';
-            // document.getElementById('warning').innerHTML = text;
+            document.getElementById('warning').innerHTML = text;
         }else {
             document.getElementById('index' + e.clinic).innerHTML = '空闲';
         }
