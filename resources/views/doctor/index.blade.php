@@ -49,14 +49,14 @@
 
 @section('javascript')
     <script type="application/javascript">
-        function delete_post(id, clinic)  {
+        function delete_post(id, clinic) {
             $.ajax({
                 url: '{{ url('api/doctors/delete') }}',
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
                 method: 'POST',
-                data: { id: id, clinic: clinic}
+                data: {id: id, clinic: clinic}
             }).done(function (res) {
                 console.log(res);
                 alert('操作成功');
@@ -65,5 +65,9 @@
                 alert(msg);
             })
         }
+
+        setTimeout(function () {
+            window.location.reload();
+        }, 5000)
     </script>
 @endsection
