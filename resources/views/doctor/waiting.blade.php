@@ -59,14 +59,14 @@
     Echo.channel('patient').listen('Patient', (e) => {
         console.log(e);
         var text = '';
-        if (e.index1 > 0) {
+        if (e.index1 >= 0) {
             document.getElementById('index' + e.clinic).innerHTML =  e.index1 + ' ' + e.name1;
             text = '请'+ e.index1 +'号'+e.name1+'到'+e.clinic+'号诊室就诊';
             document.getElementById('warning').innerHTML = text;
         }else {
             document.getElementById('index' + e.clinic).innerHTML = '空闲';
         }
-        if (e.index2 > 0) {
+        if (e.index2 >= 0) {
             document.getElementById('next'+e.clinic).innerHTML =  e.index2 +' '+e.name2;
             text = text + ' 请'+e.index2+'号'+e.name2+'准备';
         }else {

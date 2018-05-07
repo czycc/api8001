@@ -111,6 +111,7 @@ class DoctorController extends Controller
         $count = Redis::zcount("doctor_queue_list{$id}", $today, $tomorrow);
         if ($count==0) {
             $k = Redis::get('doctor_queue_id' . $id);
+            $k = "0" . $id . "0" . $k;//编号
             event(new PatientEvent($k, $name, '-1', '', $id));
         }
         Redis::zadd("doctor_queue_list{$id}", time(), $patient->id);
