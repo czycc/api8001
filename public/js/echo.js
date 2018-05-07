@@ -874,8 +874,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
     broadcaster: 'socket.io',
-    // host: window.location.hostname + ':6001'
-    host: 'localhost:6001'
+    host: window.location.hostname + ':3000'
+    // host: 'localhost:6001'
 
 });
 
