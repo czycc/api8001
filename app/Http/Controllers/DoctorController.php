@@ -105,7 +105,14 @@ class DoctorController extends Controller
         $patient->doctor = $doctor;
         $patient->save();
 
-        //录入队列
+        //录入队列,判断是否广播
+        $today = Carbon::today()->timestamp;
+        $tomorrow = Carbon::tomorrow()->timestamp;
+        $count = Redis::zcount("doctor_queue_list{$id}", $today, $tomorrow);
+        if ($count==0) {
+            $k = Redis::get('doctor_queue_id' . $id);
+            event(new PatientEvent($k, $name, '-1', '', $id));
+        }
         Redis::zadd("doctor_queue_list{$id}", time(), $patient->id);
 
         return back()->with('success', '提交成功');
