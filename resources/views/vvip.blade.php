@@ -117,6 +117,72 @@
     <span class="rules">条款与细则</span>
     <img class="next" src="../res/vvip/images/next.png">
 </section>
+<section class="gift_select3 hidden">
+    <ul>
+        <li>
+            @if($stock->gift8 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+            <img src="../res/vvip/images/gift8.png" alt="">
+        </li>
+        <li>
+            @if($stock->gift9 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+            <img src="../res/vvip/images/gift9.png" alt="">
+        </li>
+        <li>
+            @if($stock->gift10 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+            <img src="../res/vvip/images/gift10.png" alt="">
+        </li>
+    </ul>
+    <span class="rules">条款与细则</span>
+    <img class="next" src="../res/vvip/images/next.png">
+</section>
+<section class="gift_select4 hidden">
+    <ul>
+        <li>
+            @if($stock->gift11 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+            <img src="../res/vvip/images/gift11.png" alt="">
+        </li>
+        <li>
+            @if($stock->gift12 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+            <img src="../res/vvip/images/gift12.png" alt="">
+        </li>
+        <li>
+            @if($stock->gift13 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+            <img src="../res/vvip/images/gift13.png" alt="">
+        </li>
+    </ul>
+    <span class="rules">条款与细则</span>
+    <img class="next" src="../res/vvip/images/next.png">
+</section>
 <section class="gift hidden">
     <img id="gift_photo" src="" alt="">
     <div id="gift_title">

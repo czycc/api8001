@@ -117,7 +117,65 @@ var product2 = [
         '<p>注：详细功能和操作请见《产品使用说明书》</p>'
     }
 ];
-(function () {
+var product3 = [
+    {
+        'gift_photo': 'res/images/gift/gift8.png',
+        'gift_title': '<div class="gift_sTitle">探险者</div><div class="gift_lTitle">野外全自动帐篷</div>',
+        'infoText': '<p class="infoText_feature">产品特点：</p>' +
+        '<p>1、新一代弹簧式液压自动结构，收搭自如，省时省力；</p>' +
+        '<p>2、宽大空间、通风透气、舒适惬意；</p>' +
+        '<p>3、一帐多用、适用于多种户外环境；</p>' +
+        '<p>4、升级款PU面料，防水防晒，不惧恶劣天气；</p>'
+    },
+    {
+        'gift_photo': 'res/images/gift/gift9.png',
+        'gift_title': '<div class="gift_sTitle">新秀丽</div><div class="gift_lTitle">旅行魔术靠枕</div>',
+        'infoText': '<p class="infoText_feature">产品特点：</p>' +
+        '<p>1、Samsnite出品；</p>' +
+        '<p>2、54%棉、40.7%聚脂钎维（面料）</p>' +
+        '<p>3、100%聚苯乙烯（内部）</p>' +
+        '<p>4、U形靠枕&方形抱枕，随心变换；</p>'
+    },
+    {
+        'gift_photo': 'res/images/gift/gift10.png',
+        'gift_title': '<div class="gift_sTitle">富士</div><div class="gift_lTitle">趣奇拍立得相机</div>',
+        'infoText': '<p class="infoText_feature">产品特点：</p>' +
+        '<p>1、特色自拍镜，享受自拍的乐趣；</p>' +
+        '<p>2、Hi-Key日系小清新模式，呈现美白娇嫩的肤质；</p>' +
+        '<p>3、安装近摄镜后可拍摄35cm物体，轻松拍特写；</p>' +
+        '<p>4、一键开机，享受自拍的乐趣。</p>'
+    }
+]
+var product4 = [
+    {
+        'gift_photo': 'res/images/gift/gift11.png',
+        'gift_title': '<div class="gift_sTitle">飞利浦</div><div class="gift_lTitle">无线蓝牙降噪头戴式耳机</div>',
+        'infoText': '<p class="infoText_feature">产品特点：</p>' +
+        '<p>1、Shield Pro主动混合消噪技术ANC；</p>' +
+        '<p>2、40mm扬声器驱动器；</p>' +
+        '<p>3、无线蓝牙技术；</p>' +
+        '<p>4、智能触摸控件；</p>'
+    },
+    {
+        'gift_photo': 'res/images/gift/gift12.png',
+        'gift_title': '<div class="gift_sTitle">Insta360 Air VR</div><div class="gift_lTitle">全景高清自拍直播相机</div>',
+        'infoText': '<p class="infoText_feature">产品特点：</p>' +
+        '<p>1、即使没有VR手机盒子也能轻松体验全景的乐趣；</p>' +
+        '<p>2、 一键分享，朋友圈装X神器；</p>' +
+        '<p>3、 打破平面界限，激发创作灵感；</p>' +
+        '<p>4、 让电脑也能畅享全景视野；</p>'
+    },
+    {
+        'gift_photo': 'res/images/gift/gift13.png',
+        'gift_title': '<div class="gift_sTitle">雷朋</div><div class="gift_lTitle">男女经典款墨镜</div>',
+        'infoText': '<p class="infoText_feature">产品特点：</p>' +
+        '<p>1、80年经典款，时尚范十足；</p>' +
+        '<p>2、专用光学玻璃镜片，充分阻挡有害光线；</p>' +
+        '<p>3、法拉利合金材料装嵌，可双重加固承受万次开合；</p>' +
+        '<p>4、高品质防滑、耐腐蚀硅胶鼻托，缓解鼻梁佩戴压力；</p>'
+    }
+]
+$(function () {
     init();
     //存放表单数据
     var orderForm = {}
@@ -154,6 +212,10 @@ var product2 = [
                             $('.gift_select2').show().siblings().hide();
                         } else if (val.substring(0, 1) == "B") {
                             $('.gift_select').show().siblings().hide();
+                        } else if (val.substring(0, 1) == "D") {
+                            $('.gift_select3').show().siblings().hide();
+                        } else if (val.substring(0, 1) == "C") {
+                            $('.gift_select4').show().siblings().hide();
                         }
                     } else {
                         $('#page3_tips').html('<p id="page3_tips" style="color: red">您输入的兑奖码有误</p>');
@@ -243,12 +305,42 @@ var product2 = [
             }
 
         })
+        $('.gift_select3 li').click(function() {
+            if ($(this).find('span').eq(0).attr('class') == 'hidden') {
+                alert('当前礼品库存不足，请重新选择')
+            } else {
+                giftIndex = 3;
+                var index = $(this).index();
+                orderForm.gift = "gift" + (index + 8);
+                $('#gift_photo').attr('src', product3[index].gift_photo);
+                $('#gift_title').html(product3[index].gift_title);
+                $('.infoText').html(product3[index].infoText);
+                $('.gift').show().siblings().hide();
+            }
+        })
+        $('.gift_select4 li').click(function() {
+            if ($(this).find('span').eq(0).attr('class') == 'hidden') {
+                alert('当前礼品库存不足，请重新选择')
+            } else {
+                giftIndex = 4;
+                var index = $(this).index();
+                orderForm.gift = "gift" + (index + 11);
+                $('#gift_photo').attr('src', product4[index].gift_photo);
+                $('#gift_title').html(product4[index].gift_title);
+                $('.infoText').html(product4[index].infoText);
+                $('.gift').show().siblings().hide();
+            }
+        })
         //返回
         $('.btn_return').click(function () {
             if (giftIndex == 1) {
                 $('.gift_select').show().siblings().hide();
             } else if (giftIndex == 2) {
                 $('.gift_select2').show().siblings().hide();
+            } else if (giftIndex == 3) {
+                $('.gift_select3').show().siblings().hide();
+            } else if (giftIndex == 4) {
+                $('.gift_select4').show().siblings().hide();
             }
         })
         //确认
@@ -344,4 +436,4 @@ var product2 = [
         })
     }
 
-})();
+});

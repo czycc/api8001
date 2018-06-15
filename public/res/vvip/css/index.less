@@ -16,7 +16,6 @@ section{
 .hid{
   display: none;
 }
-
 //swiper
 .swiper-container {
   width: 640 / @base;
@@ -231,6 +230,73 @@ section{
     }
   }
 }
+.gift_select3{
+  background: url("../images/bg_purchase.jpg") no-repeat center;
+  background-size: cover;
+  ul{
+    overflow-y: scroll;
+    width: 640 / @base;
+    height: 800 / @base;
+    margin-top: 160/@base;
+  }
+  li{
+    width: 640/@base;
+    position: relative;
+    margin-top: 50/@base;
+    img{
+      width: 640/@base;
+    }
+    span{
+      position: absolute;
+      right: 70/@base;
+      color: #6bb865;
+      .font12;
+    }
+    &:nth-child(1) span{
+      top: 45/@base;
+    }
+    &:nth-child(2) span{
+      top: 56/@base;
+    }
+    &:nth-child(3) span{
+      top: 124/@base;
+    }
+  }
+}
+.gift_select4{
+  background: url("../images/bg_purchase.jpg") no-repeat center;
+  background-size: cover;
+  ul{
+    overflow-y: scroll;
+    width: 640 / @base;
+    height: 800 / @base;
+    margin-top: 160/@base;
+  }
+  li{
+    width: 640/@base;
+    position: relative;
+    margin-top: 50/@base;
+    img{
+      width: 640/@base;
+    }
+    span{
+      position: absolute;
+      right: 70/@base;
+      color: #6bb865;
+      .font12;
+    }
+    &:nth-child(1) span{
+      top: 110/@base;
+    }
+    &:nth-child(2) span{
+      top: 80/@base;
+    }
+    &:nth-child(3) span{
+      top: 40/@base;
+    }
+  }
+}
+
 //礼品详情页
 .gift{
   background: url("../images/bg_purchase.jpg") no-repeat center;
@@ -373,7 +439,7 @@ section{
       border: none;
       font-size: 18px;
       display: inline-block;
-      .font34;
+      .font34
     }
   }
   .btn_submit{
@@ -769,6 +835,7 @@ section{
 }
 
 .hidden{
+ 
   display: none;
 }
 
