@@ -119,7 +119,7 @@ var product2 = [
 ];
 var product3 = [
     {
-        'gift_photo': 'res/images/gift/gift8.png',
+        'gift_photo': 'res/vvip/images/gift/gift8.png',
         'gift_title': '<div class="gift_sTitle">探险者</div><div class="gift_lTitle">野外全自动帐篷</div>',
         'infoText': '<p class="infoText_feature">产品特点：</p>' +
         '<p>1、新一代弹簧式液压自动结构，收搭自如，省时省力；</p>' +
@@ -128,7 +128,7 @@ var product3 = [
         '<p>4、升级款PU面料，防水防晒，不惧恶劣天气；</p>'
     },
     {
-        'gift_photo': 'res/images/gift/gift9.png',
+        'gift_photo': 'res/vvip/images/gift/gift9.png',
         'gift_title': '<div class="gift_sTitle">新秀丽</div><div class="gift_lTitle">旅行魔术靠枕</div>',
         'infoText': '<p class="infoText_feature">产品特点：</p>' +
         '<p>1、Samsnite出品；</p>' +
@@ -137,7 +137,7 @@ var product3 = [
         '<p>4、U形靠枕&方形抱枕，随心变换；</p>'
     },
     {
-        'gift_photo': 'res/images/gift/gift10.png',
+        'gift_photo': 'res/vvip/images/gift/gift10.png',
         'gift_title': '<div class="gift_sTitle">富士</div><div class="gift_lTitle">趣奇拍立得相机</div>',
         'infoText': '<p class="infoText_feature">产品特点：</p>' +
         '<p>1、特色自拍镜，享受自拍的乐趣；</p>' +
@@ -148,7 +148,7 @@ var product3 = [
 ]
 var product4 = [
     {
-        'gift_photo': 'res/images/gift/gift11.png',
+        'gift_photo': 'res/vvip/images/gift/gift11.png',
         'gift_title': '<div class="gift_sTitle">飞利浦</div><div class="gift_lTitle">无线蓝牙降噪头戴式耳机</div>',
         'infoText': '<p class="infoText_feature">产品特点：</p>' +
         '<p>1、Shield Pro主动混合消噪技术ANC；</p>' +
@@ -157,7 +157,7 @@ var product4 = [
         '<p>4、智能触摸控件；</p>'
     },
     {
-        'gift_photo': 'res/images/gift/gift12.png',
+        'gift_photo': 'res/vvip/images/gift/gift12.png',
         'gift_title': '<div class="gift_sTitle">Insta360 Air VR</div><div class="gift_lTitle">全景高清自拍直播相机</div>',
         'infoText': '<p class="infoText_feature">产品特点：</p>' +
         '<p>1、即使没有VR手机盒子也能轻松体验全景的乐趣；</p>' +
@@ -166,7 +166,7 @@ var product4 = [
         '<p>4、 让电脑也能畅享全景视野；</p>'
     },
     {
-        'gift_photo': 'res/images/gift/gift13.png',
+        'gift_photo': 'res/vvip/images/gift/gift13.png',
         'gift_title': '<div class="gift_sTitle">雷朋</div><div class="gift_lTitle">男女经典款墨镜</div>',
         'infoText': '<p class="infoText_feature">产品特点：</p>' +
         '<p>1、80年经典款，时尚范十足；</p>' +
