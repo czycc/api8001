@@ -88,7 +88,7 @@ class Stock2Controller extends Controller
             $grid->column('gift8', '野外全自动帐篷');
             $grid->column('gift9', '旅行魔术靠枕');
             $grid->column('gift10', '趣奇拍立得');
-            $grid->column('gift11', '无线蓝牙耳机');
+            $grid->column('gift11', '飞利浦蓝牙耳机');
             $grid->column('gift12', '360全景相机');
             $grid->column('gift13', '雷朋墨镜');
         });
@@ -106,7 +106,7 @@ class Stock2Controller extends Controller
             $form->number('gift8', '野外全自动帐篷');
             $form->number('gift9', '旅行魔术靠枕');
             $form->number('gift10', '趣奇拍立得');
-            $form->number('gift11', '无线蓝牙耳机');
+            $form->number('gift11', '飞利浦蓝牙耳机');
             $form->number('gift12', '360全景相机');
             $form->number('gift13', '雷朋墨镜');
         });

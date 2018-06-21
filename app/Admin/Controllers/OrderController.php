@@ -131,7 +131,7 @@ class OrderController extends Controller
                         $gift = '趣奇拍立得';
                         break;
                     case 'gift11':
-                        $gift = '无线蓝牙耳机';
+                        $gift = '飞利浦蓝牙耳机';
                         break;
                     case 'gift12':
                         $gift = '360全景相机';

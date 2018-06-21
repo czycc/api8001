@@ -32,7 +32,7 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('野外全自动帐篷', 'balance-scale', 'green', '', $gift->gift8));
                 $row->column(2, new InfoBox('旅行魔术靠枕', 'balance-scale', 'green', '', $gift->gift9));
                 $row->column(2, new InfoBox('趣奇拍立得', 'balance-scale', 'green', '', $gift->gift10));
-                $row->column(2, new InfoBox('无线蓝牙耳机', 'balance-scale', 'green', '', $gift->gift11));
+                $row->column(2, new InfoBox('飞利浦蓝牙耳机', 'balance-scale', 'green', '', $gift->gift11));
                 $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'green', '', $gift->gift12));
                 $row->column(2, new InfoBox('雷朋墨镜', 'balance-scale', 'green', '', $gift->gift13));
 
@@ -47,7 +47,7 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('野外全自动帐篷', 'balance-scale', 'green', '', $order->where('gift', 'gift8')->count()));
                 $row->column(2, new InfoBox('旅行魔术靠枕', 'balance-scale', 'green', '', $order->where('gift', 'gift9')->count()));
                 $row->column(2, new InfoBox('趣奇拍立得', 'balance-scale', 'green', '', $order->where('gift', 'gift10')->count()));
-                $row->column(2, new InfoBox('无线蓝牙耳机', 'balance-scale', 'green', '', $order->where('gift', 'gift11')->count()));
+                $row->column(2, new InfoBox('飞利浦蓝牙耳机', 'balance-scale', 'green', '', $order->where('gift', 'gift11')->count()));
                 $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'green', '', $order->where('gift', 'gift12')->count()));
                 $row->column(2, new InfoBox('雷朋墨镜', 'balance-scale', 'green', '', $order->where('gift', 'gift13')->count()));
 
