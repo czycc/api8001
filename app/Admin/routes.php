@@ -14,5 +14,6 @@ Route::group([
     $router->get('order', 'OrderController@index');
     $router->get('index', 'IndexController@index');
     $router->resource('stock', 'StockController');
+    $router->resource('stock2', 'Stock2Controller');
     $router->resource('news', 'NewsController');
 });
