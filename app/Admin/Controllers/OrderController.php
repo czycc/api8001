@@ -121,8 +121,24 @@ class OrderController extends Controller
                     case 'gift6':
                         $gift = '科沃斯智能扫地机器人超薄二代';
                         break;
-                    default:
-                        $gift = '象印多功能电火锅';
+                    case 'gift8':
+                        $gift = '野外全自动帐篷';
+                        break;
+                    case 'gift9':
+                        $gift = '旅行魔术靠枕';
+                        break;
+                    case 'gift10':
+                        $gift = '趣奇拍立得';
+                        break;
+                    case 'gift11':
+                        $gift = '无线蓝牙耳机';
+                        break;
+                    case 'gift12':
+                        $gift = '360全景相机';
+                        break;
+                    case 'gift13':
+                        $gift = '雷朋墨镜';
+                        break;
                 }
                 return $gift;
             });
