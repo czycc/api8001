@@ -91,6 +91,12 @@ class StockController extends Controller
             $grid->column('gift5', '佳能手机照片打印机');
             $grid->column('gift6', '科沃斯扫地机器人');
 //            $grid->column('gift7', '象印多功能电火锅');
+            $grid->column('gift8', '野外全自动帐篷');
+            $grid->column('gift9', '旅行魔术靠枕');
+            $grid->column('gift10', '趣奇拍立得');
+            $grid->column('gift11', '无线蓝牙耳机');
+            $grid->column('gift12', '360全景相机');
+            $grid->column('gift13', '雷朋墨镜');
 
         });
     }
@@ -110,7 +116,12 @@ class StockController extends Controller
             $form->number('gift5','佳能手机照片打印机');
             $form->number('gift6','科沃斯扫地机器人');
 //            $form->number('gift7','象印多功能电火锅');
-
+            $form->number('gift8', '野外全自动帐篷');
+            $form->number('gift9', '旅行魔术靠枕');
+            $form->number('gift10', '趣奇拍立得');
+            $form->number('gift11', '无线蓝牙耳机');
+            $form->number('gift12', '360全景相机');
+            $form->number('gift13', '雷朋墨镜');
         });
     }
 }
