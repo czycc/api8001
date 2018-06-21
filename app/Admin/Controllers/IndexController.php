@@ -29,6 +29,12 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('佳能手机照片打印机剩余', 'balance-scale', 'aqua', '', $gift->gift5));
                 $row->column(2, new InfoBox('科沃斯智能扫地机器人超薄二代剩余', 'balance-scale', 'aqua', '', $gift->gift6));
 //                $row->column(2, new InfoBox('象印多功能电火锅剩余', 'balance-scale', 'aqua', '', $gift->gift7));
+                $row->column(2, new InfoBox('野外全自动帐篷', 'balance-scale', 'aqua', '', $gift->gift8));
+                $row->column(2, new InfoBox('旅行魔术靠枕', 'balance-scale', 'aqua', '', $gift->gift9));
+                $row->column(2, new InfoBox('趣奇拍立得', 'balance-scale', 'aqua', '', $gift->gift10));
+                $row->column(2, new InfoBox('无线蓝牙耳机', 'balance-scale', 'aqua', '', $gift->gift11));
+                $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'aqua', '', $gift->gift12));
+                $row->column(2, new InfoBox('雷朋墨镜', 'balance-scale', 'aqua', '', $gift->gift13));
 
                 $order = Order::get();
                 $row->column(2, new InfoBox('万福如意礼盒兑换', 'calculator', 'green', '', $order->where('gift', 'gift1')->count()));
@@ -38,6 +44,12 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('佳能手机照片打印机兑换', 'calculator', 'green', '', $order->where('gift', 'gift5')->count()));
                 $row->column(2, new InfoBox('科沃斯智能扫地机器人超薄二代兑换', 'calculator', 'green', '', $order->where('gift', 'gift6')->count()));
 //                $row->column(2, new InfoBox('象印多功能电火锅兑换', 'calculator', 'green', '', $order->where('gift', 'gift7')->count()));
+                $row->column(2, new InfoBox('野外全自动帐篷', 'balance-scale', 'aqua', '', $order->where('gift', 'gift8')->count()));
+                $row->column(2, new InfoBox('旅行魔术靠枕', 'balance-scale', 'aqua', '', $order->where('gift', 'gift9')->count()));
+                $row->column(2, new InfoBox('趣奇拍立得', 'balance-scale', 'aqua', '', $order->where('gift', 'gift10')->count()));
+                $row->column(2, new InfoBox('无线蓝牙耳机', 'balance-scale', 'aqua', '', $order->where('gift', 'gift11')->count()));
+                $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'aqua', '', $order->where('gift', 'gift12')->count()));
+                $row->column(2, new InfoBox('雷朋墨镜', 'balance-scale', 'aqua', '', $order->where('gift', 'gift13')->count()));
 
             });
         });
