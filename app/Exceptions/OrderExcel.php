@@ -34,8 +34,24 @@ class ExcelExpoter extends AbstractExporter
                         case 'gift6':
                             $item['gift'] = '科沃斯智能扫地机器人超薄二代';
                             break;
-                        default:
-                            $item['gift'] = '象印多功能电火锅';
+                        case 'gift8':
+                            $item['gift'] = '野外全自动帐篷';
+                            break;
+                        case 'gift9':
+                            $item['gift'] = '旅行魔术靠枕';
+                            break;
+                        case 'gift10':
+                            $item['gift'] = '趣奇拍立得';
+                            break;
+                        case 'gift11':
+                            $item['gift'] = '飞利浦蓝牙耳机';
+                            break;
+                        case 'gift12':
+                            $item['gift'] = '360全景相机';
+                            break;
+                        case 'gift13':
+                            $item['gift'] = '雷朋墨镜';
+                            break;
                     }
                     return array_only($item, ['id', 'code', 'name', 'phone', 'postcode', 'location', 'gift', 'created_at']);
                 });
