@@ -48,7 +48,8 @@ class VipController extends Controller
             'phone' => 'required|size:11',//手机号
             'postcode' => 'required|size:6',//邮编
             'location' => 'required|max:100',//地址
-            'gift' => 'required'//兑奖码
+            'gift' => 'required',//兑奖码
+            'remarks' => 'nullable'
         ]);
 //        $validator = Validator::make($request->all(), [
 //            'code' => 'required|size:8',//兑奖码
@@ -95,6 +96,7 @@ class VipController extends Controller
         $order->gift = $request->gift;
         $order->postcode = $request->postcode;
         $order->code = $request->code;
+        $order->remarks = $request->remarks;
         $order->save();
 
         //更新礼品数量

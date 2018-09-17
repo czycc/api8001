@@ -186,7 +186,7 @@
 <section class="gift_select5 hidden">
 		<ul>
 			<li>
-            @if($stock->gift13 > 0)
+            @if($stock->gift15 > 0)
                 <span class="">库存正常</span>
             @else
                 <span class="hidden">库存正常</span>
@@ -195,7 +195,7 @@
 				<img src="res/images/gift15.png">
 			</li>
 			<li>
-            @if($stock->gift13 > 0)
+            @if($stock->gift16 > 0)
                 <span class="">库存正常</span>
             @else
                 <span class="hidden">库存正常</span>
@@ -210,7 +210,7 @@
 	<section class="gift_select6 hidden">
 		<ul>
 			<li>
-            @if($stock->gift13 > 0)
+            @if($stock->gift17 > 0)
                 <span class="">库存正常</span>
             @else
                 <span class="hidden">库存正常</span>
@@ -219,7 +219,7 @@
 				<img src="res/images/gift17.png" alt="">
 			</li>
 			<li>
-            @if($stock->gift13 > 0)
+            @if($stock->gift18 > 0)
                 <span class="">库存正常</span>
             @else
                 <span class="hidden">库存正常</span>
@@ -228,7 +228,7 @@
 				<img src="res/images/gift18.png" alt="">
 			</li>
 			<li>
-            @if($stock->gift13 > 0)
+            @if($stock->gift19 > 0)
                 <span class="">库存正常</span>
             @else
                 <span class="hidden">库存正常</span>

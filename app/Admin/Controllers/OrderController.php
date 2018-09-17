@@ -84,7 +84,7 @@ class OrderController extends Controller
                     $batch->disableDelete();
                 });
             });
-            $grid->filter(function($filter){
+            $grid->filter(function ($filter) {
 
                 // 去掉默认的id过滤器
                 $filter->disableIdFilter();
@@ -96,12 +96,12 @@ class OrderController extends Controller
                 $filter->like('gift', '礼物种类');
             });
             $grid->id('ID')->sortable();
-            $grid->column('code','兑换码');
+            $grid->column('code', '兑换码');
             $grid->column('name', '姓名');
             $grid->column('phone', '联系方式');
-            $grid->column('postcode','邮政编码');
+            $grid->column('postcode', '邮政编码');
             $grid->column('location', '地址');
-            $grid->column('gift', '礼物种类')->display(function ($gift){
+            $grid->column('gift', '礼物种类')->display(function ($gift) {
                 switch ($gift) {
                     case 'gift1':
                         $gift = '万福如意礼盒';
@@ -121,6 +121,8 @@ class OrderController extends Controller
                     case 'gift6':
                         $gift = '科沃斯智能扫地机器人超薄二代';
                         break;
+
+                    //第二季
                     case 'gift8':
                         $gift = '野外全自动帐篷';
                         break;
@@ -139,9 +141,27 @@ class OrderController extends Controller
                     case 'gift13':
                         $gift = '雷朋墨镜';
                         break;
+
+                    //第三季
+                    case 'gift15':
+                        $gift = '主题钱币';
+                        break;
+                    case 'gift16':
+                        $gift = '太阳能车载空气净化器';
+                        break;
+                    case 'gift17':
+                        $gift = 'JBL 蓝牙音箱';
+                        break;
+                    case 'gift18':
+                        $gift = 'VR全景相机';
+                        break;
+                    case 'gift19':
+                        $gift = 'kindle';
+                        break;
                 }
                 return $gift;
             });
+            $grid->column('remarks', '备注');
             $grid->created_at('创建时间')->sortable();
         });
     }

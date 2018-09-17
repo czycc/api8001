@@ -16,6 +16,7 @@ class ExcelExpoter extends AbstractExporter
                 // 这段逻辑是从表格数据中取出需要导出的字段
                 $rows = collect($this->getData())->map(function ($item) {
                     switch ($item['gift']) {
+                        //第一季
                         case 'gift1':
                             $item['gift'] = '万福如意礼盒';
                             break;
@@ -34,6 +35,8 @@ class ExcelExpoter extends AbstractExporter
                         case 'gift6':
                             $item['gift'] = '科沃斯智能扫地机器人超薄二代';
                             break;
+
+                        //第二季
                         case 'gift8':
                             $item['gift'] = '野外全自动帐篷';
                             break;
@@ -52,8 +55,25 @@ class ExcelExpoter extends AbstractExporter
                         case 'gift13':
                             $item['gift'] = '雷朋墨镜';
                             break;
+
+                        //第三季
+                        case 'gift15':
+                            $item['gift'] = '主题钱币';
+                            break;
+                        case 'gift16':
+                            $item['gift'] = '太阳能车载空气净化器';
+                            break;
+                        case 'gift17':
+                            $item['gift'] = 'JBL 蓝牙音箱';
+                            break;
+                        case 'gift18':
+                            $item['gift'] = 'VR全景相机';
+                            break;
+                        case 'gift19':
+                            $item['gift'] = 'kindle';
+                            break;
                     }
-                    return array_only($item, ['id', 'code', 'name', 'phone', 'postcode', 'location', 'gift', 'created_at']);
+                    return array_only($item, ['id', 'code', 'name', 'phone', 'postcode', 'location', 'gift', 'remarks', 'created_at']);
                 });
 
                 $sheet->rows($rows);

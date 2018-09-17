@@ -15,5 +15,6 @@ Route::group([
     $router->get('index', 'IndexController@index');
     $router->resource('stock', 'StockController');
     $router->resource('stock2', 'Stock2Controller');
+    $router->resource('stock3', 'Stock3Controller');
     $router->resource('news', 'NewsController');
 });
