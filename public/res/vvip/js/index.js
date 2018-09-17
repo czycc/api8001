@@ -175,6 +175,49 @@ var product4 = [
         '<p>4、高品质防滑、耐腐蚀硅胶鼻托，缓解鼻梁佩戴压力；</p>'
     }
 ]
+var product5 = [
+	{
+		'gift_photo': 'res/images/gift/gift15.png',
+		'gift_title': '<div class="gift_sTitle">"一带一路"</div><div class="gift_lTitle">主题钱币精选珍藏</div>',
+		'infoText': '<p class="infoText_feature"渣打银行：</p>' +
+			'<p>——连接亚洲、非洲、中东超过150年；约70%的全球网点分布在“一带一路”沿线市场。</p>'
+	},
+	{
+		'gift_photo': 'res/images/gift/gift16.png',
+		'gift_title': '<div class="gift_sTitle">净化盒子</div><div class="gift_lTitle">太阳能车载空气净化器</div>',
+		'infoText': '<p class="infoText_feature">产品特点：</p>' +
+			'<p>全方位解决车内异味，还你健康环境</p>'
+	}
+]
+var product6 = [
+	{
+		'gift_photo': 'res/images/gift/gift17.png',
+		'gift_title': '<div class="gift_sTitle">JBL</div><div class="gift_lTitle">Flip4 蓝牙音箱</div>',
+		'infoText': '<p class="infoText_feature">产品特点：</p>' +
+			'<p>1、3000mAh可充电锂电池，长达12小时播放时间</p>' +
+			'<p>2、IPX7防浸水设计</p>' +
+			'<p>3、双重低音增强单元</p>' +
+			'<p>4、全新升级connet+功能，支持无线范围内超过100台同型号的设备互联，组成立体音乐方阵</p>' +
+			'<p>5、无线蓝牙串流，可连接2台智能手机或平板电脑，支持轮流播放，立体音效更强</p>' + 
+			'<p>6、带回音及噪声消除技术麦克风</p>' +
+			'<p>7、一键激活Siri控制</p>'
+	},
+	{
+		'gift_photo': 'res/images/gift/gift18.png',
+		'gift_title': '<div class="gift_sTitle">Insta360 Air VR</div><div class="gift_lTitle">全景高清自拍直播相机</div>',
+		'infoText': '<p class="infoText_feature">产品特点：</p>' +
+			'<p>1、即使没有VR手机盒子也能轻松体验全景的乐趣；</p>' +
+			'<p>2、 一键分享，朋友圈装X神器；</p>' +
+			'<p>3、 打破平面界限，激发创作灵感；</p>' +
+			'<p>4、 让电脑也能畅享全景视野；</p>'
+	},
+	{
+		'gift_photo': 'res/images/gift/gift19.png',
+		'gift_title': '<div class="gift_sTitle">Kindle</div><div class="gift_lTitle">Paperwhite点纸书阅读器</div>',
+		'infoText': '<p class="infoText_feature">产品特点：</p>' +
+			'<p>完美还原纸书阅读体验</p>'
+	}
+]
 $(function () {
     init();
     //存放表单数据
@@ -216,6 +259,10 @@ $(function () {
                             $('.gift_select3').show().siblings().hide();
                         } else if (val.substring(0, 1) == "C") {
                             $('.gift_select4').show().siblings().hide();
+                        } else if (val.substring(0, 1) == "E") {
+                            $('.gift_select5').show().siblings().hide();
+                        } else if (val.substring(0, 1) == "F") {
+                            $('.gift_select6').show().siblings().hide();
                         }
                     } else {
                         $('#page3_tips').html('<p id="page3_tips" style="color: red">您输入的兑奖码有误</p>');
@@ -331,6 +378,32 @@ $(function () {
                 $('.gift').show().siblings().hide();
             }
         })
+        $('.gift_select5 li').click(function() {
+			if ($(this).find('span').eq(0).attr('class') == 'hidden') {
+				alert('当前礼品库存不足，请重新选择')
+			} else {
+				giftIndex = 5;
+				var index = $(this).index();
+				orderForm.gift = "gift" + (index + 15);
+				$('#gift_photo').attr('src', product5[index].gift_photo);
+				$('#gift_title').html(product5[index].gift_title);
+				$('.infoText').html(product5[index].infoText);
+				$('.gift').show().siblings().hide();
+			}
+		})
+		$('.gift_select6 li').click(function() {
+			if ($(this).find('span').eq(0).attr('class') == 'hidden') {
+				alert('当前礼品库存不足，请重新选择')
+			} else {
+				giftIndex = 6;
+				var index = $(this).index();
+				orderForm.gift = "gift" + (index + 17);
+				$('#gift_photo').attr('src', product6[index].gift_photo);
+				$('#gift_title').html(product6[index].gift_title);
+				$('.infoText').html(product6[index].infoText);
+				$('.gift').show().siblings().hide();
+			}
+		})
         //返回
         $('.btn_return').click(function () {
             if (giftIndex == 1) {
@@ -341,7 +414,11 @@ $(function () {
                 $('.gift_select3').show().siblings().hide();
             } else if (giftIndex == 4) {
                 $('.gift_select4').show().siblings().hide();
-            }
+            } else if (giftIndex == 5) {
+				$('.gift_select5').show().siblings().hide();
+			} else if (giftIndex == 6) {
+				$('.gift_select6').show().siblings().hide();
+			}
         })
         //确认
         $('.btn_comfirm').click(function () {
@@ -373,16 +450,20 @@ $(function () {
             } else {
                 console.log('成功')
                 orderForm.username = $('.name').val();
-                orderForm.phone = $('.phone').val();
-                orderForm.postcode = $('.code').val();
-                orderForm.location = $('.proText').html() + $('.districtText').html() + $('.detailedText').val();
-                $('.info .username').html(orderForm.username);
-                $('.info .phone').html(orderForm.phone);
-                $('.info .code').html(orderForm.postcode);
-                $('.info .site').html(orderForm.location);
-                $('.orderForm').hide();
-                $('.info').show();
-
+				orderForm.phone = $('.phone').val();
+				orderForm.postcode = $('.code').val();
+				orderForm.location = $('.proText').html() + $('.districtText').html() + $('.detailedText').val();
+				$('.info .username').html(orderForm.username);
+				$('.info .phone').html(orderForm.phone);
+				$('.info .code').html(orderForm.postcode);
+				$('.info .site').html(orderForm.location);
+				if ($('.orderForm .remarks input').val() !== '') {
+					orderForm.remarks = $('.orderForm .remarks input').val()
+					$('.info .remarks').html(orderForm.remarks)
+					$('.info .info_remarks').show()
+				}
+				$('.orderForm').hide();
+				$('.info').show();
             }
         });
         $('.info1 .btn_modify').click(function () {

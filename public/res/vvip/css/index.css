@@ -366,6 +366,80 @@ section {
 .gift_select4 li:nth-child(3) span {
   top: 0.625rem;
 }
+.gift_select5 {
+  background: url("../images/bg_purchase.jpg") no-repeat center;
+  background-size: cover;
+}
+.gift_select5 ul {
+  overflow-y: scroll;
+  width: 10rem;
+  height: 12.5rem;
+  margin-top: 2.5rem;
+}
+.gift_select5 li {
+  width: 10rem;
+  position: relative;
+  margin-top: 1.5625rem;
+}
+.gift_select5 li img {
+  width: 10rem;
+}
+.gift_select5 li span {
+  position: absolute;
+  right: 1.09375rem;
+  color: #6bb865;
+  font-size: 12px;
+}
+[data-dpr="2"] .gift_select5 li span {
+  font-size: 24px;
+}
+[data-dpr="3"] .gift_select5 li span {
+  font-size: 36px;
+}
+.gift_select5 li:nth-child(1) span {
+  top: 1.40625rem;
+}
+.gift_select5 li:nth-child(2) span {
+  top: 0.9375rem;
+}
+.gift_select6 {
+  background: url("../images/bg_purchase.jpg") no-repeat center;
+  background-size: cover;
+}
+.gift_select6 ul {
+  overflow-y: scroll;
+  width: 10rem;
+  height: 12.5rem;
+  margin-top: 2.1875rem;
+}
+.gift_select6 li {
+  width: 10rem;
+  position: relative;
+}
+.gift_select6 li img {
+  width: 10rem;
+}
+.gift_select6 li span {
+  position: absolute;
+  right: 1.09375rem;
+  color: #6bb865;
+  font-size: 12px;
+}
+[data-dpr="2"] .gift_select6 li span {
+  font-size: 24px;
+}
+[data-dpr="3"] .gift_select6 li span {
+  font-size: 36px;
+}
+.gift_select6 li:nth-child(1) span {
+  top: 1.5625rem;
+}
+.gift_select6 li:nth-child(2) span {
+  top: 1.25rem;
+}
+.gift_select6 li:nth-child(3) span {
+  top: 1.875rem;
+}
 .gift {
   background: url("../images/bg_purchase.jpg") no-repeat center;
   background-size: cover;
@@ -492,11 +566,12 @@ section {
 .orderForm form .province,
 .orderForm form .county,
 .orderForm form .district,
-.orderForm form .postcode {
+.orderForm form .postcode,
+.orderForm form .remarks {
   width: 7.8125rem;
   height: 0.9375rem;
   background-color: white;
-  margin-top: 0.3125rem;
+  margin-top: 0.15625rem;
   border-radius: 0.1rem;
   box-shadow: 0 0 0.01rem 0.01rem rgba(0, 0, 0, 0.1);
   position: relative;
@@ -506,7 +581,8 @@ section {
 .orderForm form .province icon,
 .orderForm form .county icon,
 .orderForm form .district icon,
-.orderForm form .postcode icon {
+.orderForm form .postcode icon,
+.orderForm form .remarks icon {
   position: absolute;
   width: 0.546875rem;
   height: 0.625rem;
@@ -519,7 +595,8 @@ section {
 .orderForm form .province span,
 .orderForm form .county span,
 .orderForm form .district span,
-.orderForm form .postcode span {
+.orderForm form .postcode span,
+.orderForm form .remarks span {
   margin-left: 0.46875rem;
   font-size: 18px;
   float: left;
@@ -533,7 +610,8 @@ section {
 [data-dpr="2"] .orderForm form .province span,
 [data-dpr="2"] .orderForm form .county span,
 [data-dpr="2"] .orderForm form .district span,
-[data-dpr="2"] .orderForm form .postcode span {
+[data-dpr="2"] .orderForm form .postcode span,
+[data-dpr="2"] .orderForm form .remarks span {
   font-size: 34px;
 }
 [data-dpr="3"] .orderForm form .username span,
@@ -541,7 +619,8 @@ section {
 [data-dpr="3"] .orderForm form .province span,
 [data-dpr="3"] .orderForm form .county span,
 [data-dpr="3"] .orderForm form .district span,
-[data-dpr="3"] .orderForm form .postcode span {
+[data-dpr="3"] .orderForm form .postcode span,
+[data-dpr="3"] .orderForm form .remarks span {
   font-size: 51px;
 }
 .orderForm form .username input,
@@ -550,12 +629,14 @@ section {
 .orderForm form .county input,
 .orderForm form .district input,
 .orderForm form .postcode input,
+.orderForm form .remarks input,
 .orderForm form .username .districtText,
 .orderForm form .phoneNum .districtText,
 .orderForm form .province .districtText,
 .orderForm form .county .districtText,
 .orderForm form .district .districtText,
-.orderForm form .postcode .districtText {
+.orderForm form .postcode .districtText,
+.orderForm form .remarks .districtText {
   width: 4.0625rem;
   height: 0.90625rem;
   color: #035982;
@@ -573,12 +654,14 @@ section {
 [data-dpr="2"] .orderForm form .county input,
 [data-dpr="2"] .orderForm form .district input,
 [data-dpr="2"] .orderForm form .postcode input,
+[data-dpr="2"] .orderForm form .remarks input,
 [data-dpr="2"] .orderForm form .username .districtText,
 [data-dpr="2"] .orderForm form .phoneNum .districtText,
 [data-dpr="2"] .orderForm form .province .districtText,
 [data-dpr="2"] .orderForm form .county .districtText,
 [data-dpr="2"] .orderForm form .district .districtText,
-[data-dpr="2"] .orderForm form .postcode .districtText {
+[data-dpr="2"] .orderForm form .postcode .districtText,
+[data-dpr="2"] .orderForm form .remarks .districtText {
   font-size: 34px;
 }
 [data-dpr="3"] .orderForm form .username input,
@@ -587,22 +670,31 @@ section {
 [data-dpr="3"] .orderForm form .county input,
 [data-dpr="3"] .orderForm form .district input,
 [data-dpr="3"] .orderForm form .postcode input,
+[data-dpr="3"] .orderForm form .remarks input,
 [data-dpr="3"] .orderForm form .username .districtText,
 [data-dpr="3"] .orderForm form .phoneNum .districtText,
 [data-dpr="3"] .orderForm form .province .districtText,
 [data-dpr="3"] .orderForm form .county .districtText,
 [data-dpr="3"] .orderForm form .district .districtText,
-[data-dpr="3"] .orderForm form .postcode .districtText {
+[data-dpr="3"] .orderForm form .postcode .districtText,
+[data-dpr="3"] .orderForm form .remarks .districtText {
   font-size: 51px;
+}
+.orderForm form .remarks input {
+  width: 100%;
+  padding-left: 0.46875rem;
+}
+.orderForm form .remarks input::-webkit-input-placeholder {
+  color: #a6a6a7;
 }
 .orderForm form .btn_submit {
   width: 3.4375rem;
-  margin: 0.625rem auto;
+  margin: 0.46875rem auto;
 }
 .orderForm form .detailed {
   width: 7.8125rem;
   background-color: white;
-  margin-top: 0.46875rem;
+  margin-top: 0.15625rem;
   border-radius: 0.1rem;
   box-shadow: 0 0 0.01rem 0.01rem rgba(0, 0, 0, 0.1);
 }
@@ -641,7 +733,7 @@ section {
 }
 .orderForm form .browser {
   width: 7.8125rem;
-  height: 1.5625rem;
+  height: 1.09375rem;
   overflow: hidden;
 }
 .orderForm form .express-area {
@@ -649,7 +741,7 @@ section {
   height: 0.9375rem;
   line-height: 0.46875rem;
   background-color: white;
-  margin-top: 0.46875rem;
+  margin-top: 0.15625rem;
   border-radius: 0.1rem;
   box-shadow: 0 0 0.01rem 0.01rem rgba(0, 0, 0, 0.1);
 }
@@ -815,6 +907,9 @@ section {
   height: 2.8125rem;
   word-wrap: break-word;
   overflow: hidden;
+}
+.info .info_content .info_remarks span {
+  color: #a6a6a7;
 }
 .info .btn {
   font-size: 17px;

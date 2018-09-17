@@ -178,7 +178,6 @@ section{
   ul{
     margin-top: 160/@base;
   }
-
   li{
     width: 640/@base;
     position: relative;
@@ -297,6 +296,71 @@ section{
   }
 }
 
+.gift_select5{
+  background: url("../images/bg_purchase.jpg") no-repeat center;
+  background-size: cover;
+  ul{
+    overflow-y: scroll;
+    width: 640 / @base;
+    height: 800 / @base;
+    margin-top: 160/@base;
+  }
+  li{
+    width: 640/@base;
+    position: relative;
+    margin-top: 100/@base;
+    img{
+      width: 640/@base;
+    }
+    span{
+      position: absolute;
+      right: 70/@base;
+      color: #6bb865;
+      .font12;
+    }
+    &:nth-child(1) span{
+      top: 90/@base;
+    }
+    &:nth-child(2) span{
+      top: 60/@base;
+    }
+  }
+}
+
+.gift_select6{
+  background: url("../images/bg_purchase.jpg") no-repeat center;
+  background-size: cover;
+  ul{
+    overflow-y: scroll;
+    width: 640 / @base;
+    height: 800 / @base;
+    margin-top: 140/@base;
+  }
+  li{
+    width: 640/@base;
+    position: relative;
+    // margin-top: 10/@base;
+    img{
+      width: 640/@base;
+    }
+    span{
+      position: absolute;
+      right: 70/@base;
+      color: #6bb865;
+      .font12;
+    }
+    &:nth-child(1) span{
+      top: 100/@base;
+    }
+    &:nth-child(2) span{
+      top: 80/@base;
+    }
+    &:nth-child(3) span{
+      top: 120/@base;
+    }
+  }
+}
+
 //礼品详情页
 .gift{
   background: url("../images/bg_purchase.jpg") no-repeat center;
@@ -402,11 +466,11 @@ section{
     .font50;
   }
 
-  .username, .phoneNum, .province, .county ,.district,.postcode{
+  .username, .phoneNum, .province, .county ,.district,.postcode,.remarks{
     width: 500/@base;
     height: 60/@base;
     background-color: white;
-    margin-top: 20/@base;
+    margin-top: 10/@base;
     border-radius: 0.1rem;
     box-shadow: 0 0 0.01rem 0.01rem rgba(0, 0, 0, 0.1);
     position: relative;
@@ -442,14 +506,23 @@ section{
       .font34
     }
   }
+  .remarks {
+    input {
+      width: 100%;
+      padding-left: 30/@base;
+    }
+    input::-webkit-input-placeholder {
+      color: #a6a6a7;
+    }
+  }
   .btn_submit{
     width: 220/@base;
-    margin:40/@base auto;
+    margin:30/@base auto;
   }
   .detailed{
     width: 500/@base;
     background-color: white;
-    margin-top: 30/@base;
+    margin-top: 10/@base;
     border-radius: 0.1rem;
     box-shadow: 0 0 0.01rem 0.01rem rgba(0, 0, 0, 0.1);
 
@@ -477,7 +550,7 @@ section{
   }
   .browser {
     width: 500/@base;
-    height: 100/@base;
+    height: 70/@base;
     overflow: hidden;
   }
   .express-area {
@@ -485,7 +558,7 @@ section{
     height: 60/@base;
     line-height: 30/@base;
     background-color: white;
-    margin-top: 30/@base;
+    margin-top: 10/@base;
     border-radius: 0.1rem;
     box-shadow: 0 0 0.01rem 0.01rem rgba(0, 0, 0, 0.1);
 
@@ -619,8 +692,7 @@ section{
         color: #a6a6a7;
       }
       span:nth-child(2){
-          width: 230 / @base;
-
+        width: 230 / @base;
       }
       
     }
@@ -637,7 +709,11 @@ section{
         overflow: hidden;
       }
     }
-    
+    .info_remarks {
+      span {
+        color: #a6a6a7;
+      }
+    }
   }
 
 }

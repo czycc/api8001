@@ -183,6 +183,63 @@
     <span class="rules">条款与细则</span>
     <img class="next" src="../res/vvip/images/next.png">
 </section>
+<section class="gift_select5 hidden">
+		<ul>
+			<li>
+            @if($stock->gift13 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+				<img src="res/images/gift15.png">
+			</li>
+			<li>
+            @if($stock->gift13 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+				<img src="res/images/gift16.png">
+			</li>
+		</ul>
+		<span class="rules">条款与细则</span>
+		<img class="next" src="res/images/next.png">
+	</section>
+	<section class="gift_select6 hidden">
+		<ul>
+			<li>
+            @if($stock->gift13 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+				<img src="res/images/gift17.png" alt="">
+			</li>
+			<li>
+            @if($stock->gift13 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+				<img src="res/images/gift18.png" alt="">
+			</li>
+			<li>
+            @if($stock->gift13 > 0)
+                <span class="">库存正常</span>
+            @else
+                <span class="hidden">库存正常</span>
+                <span style="color:red">库存缺货</span>
+            @endif
+				<img src="res/images/gift19.png" alt="">
+			</li>
+		</ul>
+		<span class="rules">条款与细则</span>
+		<img class="next" src="res/images/next.png">
+	</section>
 <section class="gift hidden">
     <img id="gift_photo" src="" alt="">
     <div id="gift_title">
@@ -246,6 +303,9 @@
             <span>详细收货地址:</span>
             <textarea name="" id="" cols="30" rows="10" class="detailedText"></textarea>
         </div>
+        <div class="remarks">
+            <input type="text" placeholder="备注留言(富士相机选色)">
+        </div>
         <label for="">
             <!--<input id="submit" type="submit" style="display: none">-->
             <img class="btn_submit" src="../res/vvip/images/btn_submit.png" alt="">
@@ -293,6 +353,10 @@
             <span class="site"></span>
         </div>
     </div>
+    <div class="info_remarks hidden">
+        <span>备注</span>
+        <span class="remarks"></span>
+    </div>
     <div class="btn">
         <span class="btn_modify">修改</span>
         <span class="btn_infoComfirm">确认</span>
@@ -322,6 +386,10 @@
         <div class="info_location">
             <span class="info-ti">详细收货地址</span>
             <span class="site"></span>
+        </div>
+        <div class="info_remarks hidden">
+            <span>备注</span>
+            <span class="remarks"></span>
         </div>
     </div>
     <div class="infoImg">
