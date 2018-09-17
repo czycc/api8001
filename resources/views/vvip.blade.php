@@ -192,7 +192,7 @@
                 <span class="hidden">库存正常</span>
                 <span style="color:red">库存缺货</span>
             @endif
-				<img src="res/images/gift15.png">
+				<img src="../res/vvip/images/gift15.png">
 			</li>
 			<li>
             @if($stock->gift16 > 0)
@@ -201,11 +201,11 @@
                 <span class="hidden">库存正常</span>
                 <span style="color:red">库存缺货</span>
             @endif
-				<img src="res/images/gift16.png">
+				<img src="../res/vvip/images/gift16.png">
 			</li>
 		</ul>
 		<span class="rules">条款与细则</span>
-		<img class="next" src="res/images/next.png">
+		<img class="next" src="../res/vvip/images/next.png">
 	</section>
 	<section class="gift_select6 hidden">
 		<ul>
@@ -216,7 +216,7 @@
                 <span class="hidden">库存正常</span>
                 <span style="color:red">库存缺货</span>
             @endif
-				<img src="res/images/gift17.png" alt="">
+				<img src="../res/vvip/images/gift17.png" alt="">
 			</li>
 			<li>
             @if($stock->gift18 > 0)
@@ -225,7 +225,7 @@
                 <span class="hidden">库存正常</span>
                 <span style="color:red">库存缺货</span>
             @endif
-				<img src="res/images/gift18.png" alt="">
+				<img src="../res/vvip/images/gift18.png" alt="">
 			</li>
 			<li>
             @if($stock->gift19 > 0)
@@ -234,7 +234,7 @@
                 <span class="hidden">库存正常</span>
                 <span style="color:red">库存缺货</span>
             @endif
-				<img src="res/images/gift19.png" alt="">
+				<img src="../res/vvip/images/gift19.png" alt="">
 			</li>
 		</ul>
 		<span class="rules">条款与细则</span>
