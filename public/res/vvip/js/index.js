@@ -177,13 +177,13 @@ var product4 = [
 ]
 var product5 = [
 	{
-		'gift_photo': 'res/images/gift/gift15.png',
+		'gift_photo': 'res/vvip/images/gift/gift15.png',
 		'gift_title': '<div class="gift_sTitle">"一带一路"</div><div class="gift_lTitle">主题钱币精选珍藏</div>',
 		'infoText': '<p class="infoText_feature"渣打银行：</p>' +
 			'<p>——连接亚洲、非洲、中东超过150年；约70%的全球网点分布在“一带一路”沿线市场。</p>'
 	},
 	{
-		'gift_photo': 'res/images/gift/gift16.png',
+		'gift_photo': 'res/vvip/images/gift/gift16.png',
 		'gift_title': '<div class="gift_sTitle">净化盒子</div><div class="gift_lTitle">太阳能车载空气净化器</div>',
 		'infoText': '<p class="infoText_feature">产品特点：</p>' +
 			'<p>全方位解决车内异味，还你健康环境</p>'
@@ -191,7 +191,7 @@ var product5 = [
 ]
 var product6 = [
 	{
-		'gift_photo': 'res/images/gift/gift17.png',
+		'gift_photo': 'res/vvip/images/gift/gift17.png',
 		'gift_title': '<div class="gift_sTitle">JBL</div><div class="gift_lTitle">Flip4 蓝牙音箱</div>',
 		'infoText': '<p class="infoText_feature">产品特点：</p>' +
 			'<p>1、3000mAh可充电锂电池，长达12小时播放时间</p>' +
@@ -203,7 +203,7 @@ var product6 = [
 			'<p>7、一键激活Siri控制</p>'
 	},
 	{
-		'gift_photo': 'res/images/gift/gift18.png',
+		'gift_photo': 'res/vvip/images/gift/gift18.png',
 		'gift_title': '<div class="gift_sTitle">Insta360 Air VR</div><div class="gift_lTitle">全景高清自拍直播相机</div>',
 		'infoText': '<p class="infoText_feature">产品特点：</p>' +
 			'<p>1、即使没有VR手机盒子也能轻松体验全景的乐趣；</p>' +
@@ -212,7 +212,7 @@ var product6 = [
 			'<p>4、 让电脑也能畅享全景视野；</p>'
 	},
 	{
-		'gift_photo': 'res/images/gift/gift19.png',
+		'gift_photo': 'res/vvip/images/gift/gift19.png',
 		'gift_title': '<div class="gift_sTitle">Kindle</div><div class="gift_lTitle">Paperwhite点纸书阅读器</div>',
 		'infoText': '<p class="infoText_feature">产品特点：</p>' +
 			'<p>完美还原纸书阅读体验</p>'
