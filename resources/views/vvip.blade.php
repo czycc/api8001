@@ -352,10 +352,10 @@
             <span class="info-ti">详细收货地址</span>
             <span class="site"></span>
         </div>
-    </div>
-    <div class="info_remarks hidden">
-        <span>备注</span>
-        <span class="remarks"></span>
+        <div class="info_remarks hidden">
+            <span>备注</span>
+            <span class="remarks"></span>
+        </div>
     </div>
     <div class="btn">
         <span class="btn_modify">修改</span>
