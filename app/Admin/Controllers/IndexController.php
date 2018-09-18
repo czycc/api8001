@@ -58,11 +58,11 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'green', '', $order->where('gift', 'gift12')->count()));
                 $row->column(2, new InfoBox('雷朋墨镜', 'balance-scale', 'green', '', $order->where('gift', 'gift13')->count()));
                 //第三季
-                $row->column(2, new InfoBox('定制纪念币', 'balance-scale', 'grey', '', $order->gift15));
-                $row->column(2, new InfoBox('太阳能车载空气净化器', 'balance-scale', 'grey', '', $order->gift16));
-                $row->column(2, new InfoBox('JBL 蓝牙音箱', 'balance-scale', 'grey', '', $order->gift17));
-                $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'grey', '', $order->gift18));
-                $row->column(2, new InfoBox('kindle', 'balance-scale', 'grey', '', $order->gift19));
+                $row->column(2, new InfoBox('定制纪念币', 'balance-scale', 'grey', '', $order->where('gift', 'gift15')->count()));
+                $row->column(2, new InfoBox('太阳能车载空气净化器', 'balance-scale', 'grey', '', $order->where('gift', 'gift16')->count()));
+                $row->column(2, new InfoBox('JBL 蓝牙音箱', 'balance-scale', 'grey', '', $order->where('gift', 'gift17')->count()));
+                $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'grey', '', $order->where('gift', 'gift18')->count()));
+                $row->column(2, new InfoBox('kindle', 'balance-scale', 'grey', '', $order->where('gift', 'gift19')->count()));
             });
         });
 
