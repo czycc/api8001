@@ -67,7 +67,7 @@ class ExcelExpoter extends AbstractExporter
                             $item['gift'] = 'JBL 蓝牙音箱';
                             break;
                         case 'gift18':
-                            $item['gift'] = 'VR全景相机';
+                            $item['gift'] = '360全景相机';
                             break;
                         case 'gift19':
                             $item['gift'] = 'kindle';

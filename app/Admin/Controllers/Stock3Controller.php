@@ -88,7 +88,7 @@ class Stock3Controller extends Controller
             $grid->column('gift15', '主题钱币');
             $grid->column('gift16', '太阳能车载空气净化器');
             $grid->column('gift17', 'JBL 蓝牙音箱');
-            $grid->column('gift18', 'VR全景相机');
+            $grid->column('gift18', '360全景相机');
             $grid->column('gift19', 'kindle');
         });
     }
@@ -105,7 +105,7 @@ class Stock3Controller extends Controller
             $form->number('gift15', '主题钱币');
             $form->number('gift16', '太阳能车载空气净化器');
             $form->number('gift17', 'JBL 蓝牙音箱');
-            $form->number('gift18', 'VR全景相机');
+            $form->number('gift18', '360全景相机');
             $form->number('gift19', 'kindle');
         });
     }
