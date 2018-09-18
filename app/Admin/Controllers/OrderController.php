@@ -144,7 +144,7 @@ class OrderController extends Controller
 
                     //第三季
                     case 'gift15':
-                        $gift = '主题钱币';
+                        $gift = '定制纪念币';
                         break;
                     case 'gift16':
                         $gift = '太阳能车载空气净化器';

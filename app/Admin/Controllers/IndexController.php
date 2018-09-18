@@ -36,6 +36,13 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'green', '', $gift->gift12));
                 $row->column(2, new InfoBox('雷朋墨镜', 'balance-scale', 'green', '', $gift->gift13));
 
+                //第三季
+                $row->column(2, new InfoBox('定制纪念币', 'balance-scale', 'grey', '', $gift->gift15));
+                $row->column(2, new InfoBox('太阳能车载空气净化器', 'balance-scale', 'grey', '', $gift->gift16));
+                $row->column(2, new InfoBox('JBL 蓝牙音箱', 'balance-scale', 'grey', '', $gift->gift17));
+                $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'grey', '', $gift->gift18));
+                $row->column(2, new InfoBox('kindle', 'balance-scale', 'grey', '', $gift->gift19));
+
                 $order = Order::get();
                 $row->column(2, new InfoBox('万福如意礼盒兑换', 'calculator', 'aqua', '', $order->where('gift', 'gift1')->count()));
                 $row->column(2, new InfoBox('世界花卉精选外币兑换', 'calculator', 'aqua', '', $order->where('gift', 'gift2')->count()));
@@ -50,7 +57,12 @@ class IndexController extends Controller
                 $row->column(2, new InfoBox('飞利浦蓝牙耳机', 'balance-scale', 'green', '', $order->where('gift', 'gift11')->count()));
                 $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'green', '', $order->where('gift', 'gift12')->count()));
                 $row->column(2, new InfoBox('雷朋墨镜', 'balance-scale', 'green', '', $order->where('gift', 'gift13')->count()));
-
+                //第三季
+                $row->column(2, new InfoBox('定制纪念币', 'balance-scale', 'grey', '', $order->gift15));
+                $row->column(2, new InfoBox('太阳能车载空气净化器', 'balance-scale', 'grey', '', $order->gift16));
+                $row->column(2, new InfoBox('JBL 蓝牙音箱', 'balance-scale', 'grey', '', $order->gift17));
+                $row->column(2, new InfoBox('360全景相机', 'balance-scale', 'grey', '', $order->gift18));
+                $row->column(2, new InfoBox('kindle', 'balance-scale', 'grey', '', $order->gift19));
             });
         });
 

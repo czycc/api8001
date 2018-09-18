@@ -58,7 +58,7 @@ class ExcelExpoter extends AbstractExporter
 
                         //第三季
                         case 'gift15':
-                            $item['gift'] = '主题钱币';
+                            $item['gift'] = '定制纪念币';
                             break;
                         case 'gift16':
                             $item['gift'] = '太阳能车载空气净化器';
