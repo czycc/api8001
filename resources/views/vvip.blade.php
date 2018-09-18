@@ -303,9 +303,6 @@
             <span>详细收货地址:</span>
             <textarea name="" id="" cols="30" rows="10" class="detailedText"></textarea>
         </div>
-        <div class="remarks">
-            <input type="text" placeholder="备注留言(富士相机选色)">
-        </div>
         <label for="">
             <!--<input id="submit" type="submit" style="display: none">-->
             <img class="btn_submit" src="../res/vvip/images/btn_submit.png" alt="">
@@ -352,10 +349,6 @@
             <span class="info-ti">详细收货地址</span>
             <span class="site"></span>
         </div>
-        <div class="info_remarks hidden">
-            <span>备注</span>
-            <span class="remarks"></span>
-        </div>
     </div>
     <div class="btn">
         <span class="btn_modify">修改</span>
@@ -386,10 +379,6 @@
         <div class="info_location">
             <span class="info-ti">详细收货地址</span>
             <span class="site"></span>
-        </div>
-        <div class="info_remarks hidden">
-            <span>备注</span>
-            <span class="remarks"></span>
         </div>
     </div>
     <div class="infoImg">

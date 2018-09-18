@@ -457,11 +457,6 @@ $(function () {
 				$('.info .phone').html(orderForm.phone);
 				$('.info .code').html(orderForm.postcode);
 				$('.info .site').html(orderForm.location);
-				if ($('.orderForm .remarks input').val() !== '') {
-					orderForm.remarks = $('.orderForm .remarks input').val()
-					$('.info .remarks').html(orderForm.remarks)
-					$('.info .info_remarks').show()
-				}
 				$('.orderForm').hide();
 				$('.info').show();
             }
