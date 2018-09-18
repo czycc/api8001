@@ -49,7 +49,6 @@ class VipController extends Controller
             'postcode' => 'required|size:6',//邮编
             'location' => 'required|max:100',//地址
             'gift' => 'required',//兑奖码
-            'remarks' => 'nullable'
         ]);
 //        $validator = Validator::make($request->all(), [
 //            'code' => 'required|size:8',//兑奖码
@@ -65,7 +64,6 @@ class VipController extends Controller
 //                'reason' => '表单输入有误'
 //            ]);
 //        }
-
         //判断库存是否足够
         $stock = Stock::first();
         if ($stock->{$request->gift} == 0) {
@@ -96,7 +94,7 @@ class VipController extends Controller
         $order->gift = $request->gift;
         $order->postcode = $request->postcode;
         $order->code = $request->code;
-        $order->remarks = $request->remarks;
+//        $order->remarks = $request->remarks;
         $order->save();
 
         //更新礼品数量

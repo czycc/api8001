@@ -73,7 +73,7 @@ class ExcelExpoter extends AbstractExporter
                             $item['gift'] = 'kindle';
                             break;
                     }
-                    return array_only($item, ['id', 'code', 'name', 'phone', 'postcode', 'location', 'gift', 'remarks', 'created_at']);
+                    return array_only($item, ['id', 'code', 'name', 'phone', 'postcode', 'location', 'gift', 'created_at']);
                 });
 
                 $sheet->rows($rows);
