@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('vvip', 'Vip\VipController@index');
+//Route::get('vvip', 'Vip\VipController@index');
 
 Auth::routes();
 
