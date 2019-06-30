@@ -14,9 +14,10 @@ class VipController extends Controller
 {
     public function index()
     {
-        $stock = Stock::first();
-        $news = News::first();
-        return view('vvip', compact('stock', 'news'));
+//        $stock = Stock::first();
+//        $news = News::first();
+//        return view('vvip', compact('stock', 'news'));
+        return '很抱歉，本活动已经截止';
     }
 
     /**
